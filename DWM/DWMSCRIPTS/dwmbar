@@ -1,0 +1,11 @@
+#!/bin/bash
+#Prints to bar and sleeps
+
+
+while true; do
+bat=`upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage`;
+percentage=`echo $bat|awk '{print $2}'`;
+
+xsetroot -name " Audio Level $(amixer -D pulse sget Master | grep 'Left:' | awk -F '[][]' '{ print $2 }') | $(free -m | grep '^Mem' | awk '{print "MB used: " $3"MB"}') | Uptime: $(uptime | awk '{print $3}' | tr -d ',') | Bat: $percentage | $( date +"%F | %R" )"
+    sleep 1m
+done &

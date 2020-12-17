@@ -1,0 +1,44 @@
+super + control + q
+  pkill -u ic768
+
+XF86LaunchA
+  gnome-screenshot --interactive
+
+super + XF86MonBrightnessUp
+  xbacklight -set 60
+
+super + XF86MonBrightnessDown
+  xbacklight -set 2
+
+XF86MonBrightnessUp
+  xbacklight -inc 2
+
+XF86MonBrightnessDown
+  xbacklight -inc -2
+
+XF86KbdBrightnessUp
+  redshift -x
+
+XF86KbdBrightnessDown
+  redshift -O 5800
+
+XF86AudioRaiseVolume
+  amixer -D pulse sset Master 5%+; /home/ic768/Scripts/DWM/dwmRefBar
+
+XF86AudioLowerVolume
+  amixer -D pulse sset Master 5%-; /home/ic768/Scripts/DWM/dwmRefBar
+
+XF86AudioMute
+  amixer -D pulse sset Master toggle; 
+
+super + i
+  firefox
+
+super + v
+  vlc
+
+super +r
+  rofi -show run -theme arc-red-dark
+
+super + Return
+  alacritty
