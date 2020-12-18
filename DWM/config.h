@@ -2,7 +2,11 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 2;        /* gap pixel between windows */
+static const unsigned int gappih    = 2;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 2;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 1;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 1;       /* vert outer gap between windows and screen edge */
+static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -71,9 +75,24 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+	{ ALTKEY|ShiftMask,             XK_equal,  incrgaps,       {.i = +3 } },
+    { ALTKEY|ShiftMask,             XK_minus,  incrgaps,       {.i = -3 } },
+    { MODKEY|Mod1Mask|ShiftMask,    XK_3,      incrogaps,      {.i = +1 } },
+    { MODKEY|Mod1Mask|ShiftMask,    XK_l,      incrogaps,      {.i = -1 } },
+    { MODKEY|Mod1Mask|ControlMask,  XK_h,      incrigaps,      {.i = +1 } },
+    { MODKEY|Mod1Mask|ControlMask,  XK_l,      incrigaps,      {.i = -1 } },
+    { ALTKEY|ShiftMask,             XK_0,      togglegaps,     {0} },
+    { MODKEY|Mod1Mask|ShiftMask,    XK_0,      defaultgaps,    {0} },
+    { MODKEY,                       XK_y,      incrihgaps,     {.i = +1 } },
+    { MODKEY,                       XK_o,      incrihgaps,     {.i = -1 } },
+    { MODKEY|ControlMask,           XK_y,      incrivgaps,     {.i = +1 } },
+    { MODKEY|ControlMask,           XK_o,      incrivgaps,     {.i = -1 } },
+    { MODKEY|Mod1Mask,              XK_y,      incrohgaps,     {.i = +1 } },
+    { MODKEY|Mod1Mask,              XK_o,      incrohgaps,     {.i = -1 } },
+    { MODKEY|ShiftMask,             XK_y,      incrovgaps,     {.i = +1 } },
+    { MODKEY|ShiftMask,             XK_o,      incrovgaps,     {.i = -1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_h,      incnmaster,     {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_l,      incnmaster,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_h,      incnmaster,     {.i = +1 } }, { MODKEY|ShiftMask,             XK_l,      incnmaster,     {.i = -1 } },
 	{ ALTKEY|ShiftMask,             XK_l,      setmfact,       {.f = -0.05} },
 	{ ALTKEY|ShiftMask,             XK_h,      setmfact,       {.f = +0.05} },
 	{ MODKEY|CONTROLKEY,            XK_Return, zoom,           {0} },
