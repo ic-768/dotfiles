@@ -1,13 +1,9 @@
 HAS BEEN PATCHED WITH GAPS AND AUTOSTART.
-EXPECTS ".dwm" DIRECTORY, AND WITHIN THAT THE AUTOSTART SCRIPT:
-
-"sxhkd & disown;
-feh --bg-scale "/home/ic768/Pictures/Wallpapers/japaneseGirl.jpg";
-/home/ic768/Scripts/DWM/dwmbar & disown;
-compton & disown;
+EXPECTS ".dwm" DIRECTORY, AND WITHIN THAT THE AUTOSTART SCRIPT
 
 dwmbar scripts  are in "Script folder"
 sxhkdrc is called by sxhkd to bind keys on startup
+dunst is used for notifications
 
 
 
