@@ -1,4 +1,4 @@
 #!/bin/bash
-#Is called by volume butons to instantly kill sleep command of dwmbar
+#Is called by volume buttons to instantly kill sleep command of dwmbar
 
 kill "$(pstree -lp | grep -- -dwmbar\([0-9] | sed "s/.*sleep(\([0-9]\+\)).*/\1/")"

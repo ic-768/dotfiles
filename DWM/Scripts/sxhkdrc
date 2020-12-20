@@ -42,3 +42,7 @@ super +r
 
 super + Return
   alacritty
+
+XF86AudioPlay
+  /home/ic768/Scripts/Language/ToggleLang.sh
+

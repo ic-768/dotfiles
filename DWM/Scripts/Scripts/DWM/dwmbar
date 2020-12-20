@@ -1,0 +1,10 @@
+#!/bin/bash
+#Prints to bar and sleeps
+
+while true; do
+state=`upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state| awk '{print $2}'`; 
+[ $state = "charging" ]&&state="+"||state="-"
+
+xsetroot -name "  |  Bat: $(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}' | cut -c 1-2;) $state  |  Uptime: $(uptime | awk '{print $3}' | tr -d ',')  |  Audio: $(amixer -D pulse sget Master | grep 'Left:' | awk -F '[][]' '{ print $2 }')  |  $(free -m | grep '^Mem' | awk '{print "MB used: " $3"MB"}')  |  $( date +"%F    %R  " )"
+    sleep 1m
+done &

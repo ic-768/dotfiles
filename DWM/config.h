@@ -10,19 +10,23 @@ static const int smartgaps          = 0;        /* 1 means no outer gap when the
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Font Awesome 5 Free Solid:size=10" };
+static const char *fonts[]          = { "Font Awesome 5 Free Solid:size=11" };
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_white[]       = "#eeeeee";
-static const char col_cyan[]        = "#3388aa";
-static const char col_alt[]         = "#9eca66";
-static const char col_black[]        = "#000000";
+static const char col_gray1[]       = "#222222"; 
+static const char col_gray2[]       = "#444444"; 
+static const char col_gray3[]       = "#bbbbbb"; 
+static const char col_white[]       = "#eeeeee"; 
+static const char col_cyan[]        = "#4499aa"; 
+static const char col_green[]       = "#6ca844"; 
+static const char col_green2[]       = "#4a8622"; 
+static const char col_green3[]       = "#286400"; 
+static const char col_black[]       = "#000000";
+static const char col_red[]         = "#ff0000";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_alt, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_white, col_black,  col_white  },
+	[SchemeNorm] = { col_white, col_gray1, col_gray2 },
+	[SchemeSel]  = { col_white, col_green3, col_white  },
 };
 
 /* tagging */

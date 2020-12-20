@@ -1,7 +1,7 @@
 HAS BEEN PATCHED WITH GAPS AND AUTOSTART.
 EXPECTS ".dwm" DIRECTORY, AND WITHIN THAT THE AUTOSTART SCRIPT
 
-dwmbar scripts  are in "Script folder"
+all scripts e.g. DWM bar modifiers,  are in "Script folder"
 sxhkdrc is called by sxhkd to bind keys on startup
 dunst is used for notifications
 
