@@ -2,9 +2,17 @@
 #Prints to bar and sleeps
 
 while true; do
-state=`upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state| awk '{print $2}'`; 
-[ $state = "charging" ]&&state="+"||state="-"
 
-xsetroot -name "  |  Bat: $(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}' | cut -c 1-2;) $state  |  Uptime: $(uptime | awk '{print $3}' | tr -d ',')  |  Audio: $(amixer -D pulse sget Master | grep 'Left:' | awk -F '[][]' '{ print $2 }')  |  $(free -m | grep '^Mem' | awk '{print "MB used: " $3"MB"}')  |  $( date +"%F    %R  " )"
+#Battery 
+STATE=`upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state| awk '{print $2}'`;
+[ "$STATE" = "charging" ]&&STATE="++"||STATE="";
+
+AUDIO=`amixer -D pulse sget Master | grep 'Left:'`;
+ISMUTED=`echo $AUDIO | awk '{print $6}'`; 
+[ $ISMUTED = "[off]" ] && VOLUME="Muted" || VOLUME=`echo $AUDIO | awk -F '[][]' '{ print $2 }'`; #if muted, volume 0
+
+
+
+xsetroot -name "  |  Bat: $(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}' | cut -c 1-2;) $STATE  |  Uptime: $(uptime | awk '{print $3}' | tr -d ',')  |  Audio: $VOLUME  |  $(free -m | grep '^Mem' | awk '{print "MB used: " $3"MB"}')  |  $( date +"%F    %R  " )"
     sleep 1m
 done &

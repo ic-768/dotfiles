@@ -1,6 +1,3 @@
-super + control + q
-  pkill -u ic768
-
 XF86LaunchA
   gnome-screenshot --interactive
 
@@ -29,7 +26,8 @@ XF86AudioLowerVolume
   amixer -D pulse sset Master 5%-; /home/ic768/Scripts/DWM/dwmRefBar
 
 XF86AudioMute
-  amixer -D pulse sset Master toggle; 
+  amixer -D pulse sset Master toggle; /home/ic768/Scripts/DWM/dwmRefBar
+
 
 super + i
   firefox
