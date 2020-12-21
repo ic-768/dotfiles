@@ -13,6 +13,6 @@ ISMUTED=`echo $AUDIO | awk '{print $6}'`;
 
 
 
-xsetroot -name "  |  Bat: $(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}' | cut -c 1-2;) $STATE  |  Uptime: $(uptime | awk '{print $3}' | tr -d ',')  |  Audio: $VOLUME  |  $(free -m | grep '^Mem' | awk '{print "MB used: " $3"MB"}')  |  $( date +"%F    %R  " )"
+xsetroot -name "  |  Bat: $(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}' | cut -c 1-2;) $STATE  |  Temp: $(sensors | grep -m 1 temp1 | awk '{ print $2 }')  |  Uptime: $(uptime | awk '{print $3"m"}' | tr -d ',')  |  Audio: $VOLUME  |  $(free -m | grep '^Mem' | awk '{print $3"MB"}')  |  $( date +"%F    %R  " )"
     sleep 1m
 done &
