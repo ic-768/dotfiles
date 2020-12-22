@@ -10,6 +10,8 @@ static const int smartgaps          = 0;        /* 1 means no outer gap when the
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const int horizpadbar        = 5;        /* horizontal padding for statusbar */
+static const int vertpadbar         = 5;        /* vertical padding for statusbar */
 static const char *fonts[]          = { "Font Awesome 5 Free Solid:size=11" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray2[]       = "#444444"; 
