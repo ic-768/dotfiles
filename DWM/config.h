@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappih    = 25;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 25;       /* vert inner gap between windows */
 static const unsigned int gappoh    = 25;       /* horiz outer gap between windows and screen edge */
@@ -17,17 +17,18 @@ static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray2[]       = "#444444"; 
 static const char col_gray3[]       = "#bbbbbb"; 
 static const char col_white[]       = "#eeeeee"; 
+static const char col_magenta[]     = "#FF0000"; 
 static const char col_green[]       = "#286400"; 
 static const char col_black[]       = "#000000";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_white, col_black, col_gray2 },
-	[SchemeSel]  = { col_white, col_green, col_white  },
+	[SchemeSel]  = { col_white, col_green, col_magenta  },
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", ""};
+static const char *tags[] = { "", "", "", "", ""};
 
 
 static const Rule rules[] = {
@@ -37,7 +38,11 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       0,            0,           -1 },
+	{ "Firefox",  NULL,       NULL,       1,            0,           -1 },
+	{ "Alacritty",NULL,       NULL,       1<<1,         0,           -1 },
+	{ "vlc", 	  NULL,       NULL,       1<<4,         0,           -1 },
+	{ "Signal",   NULL,       NULL,       1<<3,         0,           -1 },
+
 };
 
 /* layout(s) */
@@ -59,7 +64,7 @@ static const Layout layouts[] = {
 
 #define TAGKEYS(KEY,TAG) \
 	{ CONTROLKEY,                   KEY,      view,           {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+	{ ControlMask|ShiftMask,        KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
