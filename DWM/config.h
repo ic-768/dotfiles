@@ -17,14 +17,14 @@ static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray2[]       = "#444444"; 
 static const char col_gray3[]       = "#bbbbbb"; 
 static const char col_white[]       = "#eeeeee"; 
-static const char col_magenta[]     = "#FF0000"; 
+static const char col_cyan[]        = "#3ffeca"; 
 static const char col_green[]       = "#286400"; 
 static const char col_black[]       = "#000000";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_white, col_black, col_gray2 },
-	[SchemeSel]  = { col_white, col_green, col_magenta  },
+	[SchemeSel]  = { col_white, col_green, col_cyan  },
 };
 
 /* tagging */
