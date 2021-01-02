@@ -1,5 +1,5 @@
 call plug#begin('~/.config/nvim')
-
+Plug 'tpope/vim-surround'
 Plug 'terryma/vim-smooth-scroll'
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 20, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 20, 2)<CR>
@@ -10,22 +10,14 @@ let g:tex_flavor = 'latex'
 let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_quickfix_mode= 0 "Ignores all warnings. Should disable when file is healthy!" 
 
-"Plug 'vim-airline/vim-airline'  Because Ranger doesn't play nicely
-"let g:airline_theme='raven'
-"Plug 'vim-airline/vim-airline-themes'
-
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
       \ 'coc-html',
-      \ 'coc-tsserver',
       \ 'coc-css',
-      \ 'coc-python',
       \ 'coc-json',
-      \ 'coc-vimlsp',
       \ 'coc-emmet',
-      \ 'coc-tag',
-      \ ]
+      \ 'coc-tag' ]
 
 " use <tab> for trigger completion and navigate to the next complete item
 inoremap <silent><expr> <TAB>
@@ -41,6 +33,7 @@ endfunction
 
 
 let g:coc_snippet_next = '<tab>'
+Plug 'ap/vim-css-color'
 
 call plug#end()
 "
@@ -62,3 +55,4 @@ let g:markdown_fenced_languages = ['python', 'javascript', 'django']
 
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+colorscheme myTheme
