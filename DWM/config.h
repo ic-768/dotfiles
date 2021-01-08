@@ -28,7 +28,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", ""};
+static const char *tags[] = { "", "","", "", "", ""};
 
 
 static const Rule rules[] = {
@@ -40,8 +40,8 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1,            0,           -1 },
 	{ "Alacritty",NULL,       NULL,       1<<1,         0,           -1 },
-	{ "vlc", 	  NULL,       NULL,       1<<4,         0,           -1 },
-	{ "Signal",   NULL,       NULL,       1<<3,         0,           -1 },
+	{ "vlc", 	  NULL,       NULL,       1<<5,         0,           -1 },
+	{ "Signal",   NULL,       NULL,       1<<4,         0,           -1 },
 
 };
 
