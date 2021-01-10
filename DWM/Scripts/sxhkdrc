@@ -2,16 +2,16 @@ XF86LaunchA
   gnome-screenshot --interactive
 
 super + XF86MonBrightnessUp
-  xbacklight -set 60
+  xbacklight -set 60;/home/ic768/Scripts/DWM/dwmRefBar 
 
 super + XF86MonBrightnessDown
-  xbacklight -set 2
+  xbacklight -set 2;/home/ic768/Scripts/DWM/dwmRefBar 
 
 XF86MonBrightnessUp
-  xbacklight -inc 2
+  xbacklight -inc 2;/home/ic768/Scripts/DWM/dwmRefBar 
 
 XF86MonBrightnessDown
-  xbacklight -inc -2
+  xbacklight -inc -2;/home/ic768/Scripts/DWM/dwmRefBar 
 
 XF86KbdBrightnessUp
   redshift -x
@@ -46,3 +46,5 @@ XF86AudioPlay
 
 control + XF86AudioMute
   xdotool keyup control
+
+

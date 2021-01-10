@@ -4,22 +4,23 @@
 while true; do
 
 #Is battery charging? 
-STATE=`upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state| awk '{print $2}'`;
+STATE=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state| awk '{print $2}');
 [ "$STATE" = "charging" ]&&STATE="++"||STATE=""; #If charging, append "++"
 
-AUDIO=`amixer -D pulse sget Master | grep 'Left:'`; # Audio details to sift through
-ISMUTED=`echo $AUDIO | awk '{print $6}'`; 
+BRIGHTNESS=$(xbacklight | sed 's/\..*/%/g') # Replace decimals
+AUDIO=$(amixer -D pulse sget Master | grep 'Left:'); # Audio details to sift through
+ISMUTED=$(echo "$AUDIO" | awk '{print $6}'); 
 
-if [ $ISMUTED = "[off]" ];
+if [ "$ISMUTED" = "[off]" ];
 then 
   VOLUME="Muted";
   VOLSYM=""; #muted symbol
 else
-  VOLUME=`echo $AUDIO | awk -F '[][]' '{ print $2 }'` #if not muted, get audio level
+  VOLUME=$(echo "$AUDIO" | awk -F '[][]' '{ print $2 }') #if not muted, get audio level
   VOLSYM=""; #speaker symbol
 fi
 
 
-xsetroot -name "   $(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}' | cut -c 1-2;)$STATE   $(sensors | grep -m 1 temp1 | awk '{ print $2 }'| cut -c 2-8)   $(uptime | awk '{print $3}' | tr -d ',')  $VOLSYM $VOLUME  $(free -m | grep '^Mem' | awk '{print " " $3 "MB"}')     $(date +"%a %d-%b %R")"
+xsetroot -name " [  $(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}' | cut -c 1-2;)$STATE ]  { $VOLSYM $VOLUME   $BRIGHTNESS }   $(sensors | grep -m 1 temp1 | awk '{ print $2 }'| cut -c 2-8)   $(uptime | awk '{print $3}' | tr -d ',')  $(free -m | grep '^Mem' | awk '{print " " $3 "MB"}')    $(date +"%a %d-%b %R")"
     sleep 1m
 done &
