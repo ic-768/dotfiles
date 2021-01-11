@@ -3,16 +3,16 @@
 
 firefox_command(){
 xdotool search --onlyvisible --class "firefox" windowfocus key \
-  --delay 50 --window %@ $1 
+  --delay 35 --window %@ $1 
 }
 firefox_command 'ctrl+l';
 firefox_command 'ctrl+c';
 
-sleep 0.2
 url=$(xclip -o);
 
-NUMBER=$(echo $url | awk -F - '{print $7}')  #current season
-
+#Replace everything with whatever is inside \( \) 
+# in this case, ( season-number ) 
+NUMBER=$(echo $url | sed -n -e 's/.*season-\([0-9]\)*.*/\1/p')
 NEWURL=$(echo $url | sed "s/season-.*/season-$((NUMBER + 1))-episode-1/") 
 
 echo $NEWURL | xclip -i -selection "clipboard";
