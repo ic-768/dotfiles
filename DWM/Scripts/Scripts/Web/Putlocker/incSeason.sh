@@ -6,16 +6,16 @@
 # Copy url to clipboard
 firefox_command 'ctrl+l';
 firefox_command 'ctrl+c'; 
-url=$(xclip -o);
 
-#Replace everything with whatever is inside \( \) 
-# in this case, ( season-number ) 
-NUMBER=$(echo $url | sed -n -e 's/.*season-\([0-9]\)*.*/\1/p')
-NEWURL=$(echo $url | sed "s/season-.*/season-$((NUMBER + 1))-episode-1/") 
+# \K => match season- but don't be part of matched portion
+# \d+ match digits
+# e flag= allow logic instead of string in replacement
+# $&+1 add 1 to matched portion
 
+NEWURL=$(xclip -o | perl -pe 's/season-\K\d+/$&+1/e')
 
-#Paste new url in and go
-echo $NEWURL | xclip -i -selection "clipboard";
+ #Paste new url in and go
+echo "$NEWURL" | xclip -i -selection "clipboard";
 firefox_command 'ctrl+l'
 firefox_command 'ctrl+v'
 firefox_command 'Return'
