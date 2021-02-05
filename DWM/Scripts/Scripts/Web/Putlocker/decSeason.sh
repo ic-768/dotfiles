@@ -1,8 +1,10 @@
 #!/bin/bash
 # Decrement Season by 1 on putlocker
 
-. firefox_command.sh
-
+firefox_command(){
+xdotool search --onlyvisible --class "firefox" windowfocus key \
+  --delay 35 --window %@ $1
+}
 # Copy url to clipboard
 firefox_command 'ctrl+l';
 firefox_command 'ctrl+c'; 
@@ -12,7 +14,7 @@ firefox_command 'ctrl+c';
 # e flag at end = use programming expression instead of string in replacement
 # $&+1 subtract 1 to matched portion
 
-NEWURL=$(xclip -o | perl -pe 's/season-\K\d+/$&-1/e' )
+NEWURL=$(xclip -o | perl -pe 's/season-\K\d+.*/$&-1/e')"-episode-1"
 
 #Paste new url in and go
 echo "$NEWURL" | xclip -i -selection "clipboard";

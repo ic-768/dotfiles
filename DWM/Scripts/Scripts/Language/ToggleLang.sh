@@ -1,5 +1,5 @@
 #!/bin/bash
 
-lang=`setxkbmap -query |grep layout |awk '{ print $2 }'`;
-[ "$lang" = "us" ]&&lang="gr"||lang="us";
-setxkbmap $lang;
+LANG=$(setxkbmap -query |grep layout |awk '{ print $2 }');
+[ "$LANG" = "gr" ]&&LANG="us"||LANG="gr";
+setxkbmap $LANG;

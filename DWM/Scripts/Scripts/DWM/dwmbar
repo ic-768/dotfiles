@@ -21,6 +21,6 @@ else
 fi
 
 
-xsetroot -name " [  $(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}' | cut -c 1-2;)$STATE ]  { $VOLSYM $VOLUME   $BRIGHTNESS }   $(sensors | grep -m 1 temp1 | awk '{ print $2 }'| cut -c 2-8)   $(uptime | awk '{print $3}' | tr -d ',')  $(free -m | grep '^Mem' | awk '{print " " $3 "MB"}')    $(date +"%a %d-%b %R")"
+xsetroot -name "  $(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}' | cut -c 1-2;)$STATE  { $VOLSYM $VOLUME   $BRIGHTNESS }     $(sensors | grep -m 1 temp1 | awk '{ print $2 }'| cut -c 2-8)   $(uptime | awk '{print $3}' | tr -d ',')  $(free -m | grep '^Mem' | awk '{print " " $3 "MB"}')    $(date +"%a %d-%b %R")"
     sleep 1m
 done &

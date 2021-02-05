@@ -1,7 +1,10 @@
 #!/bin/bash
 # Increment episode by 1 on putlocker
 
-. firefox_command.sh
+firefox_command(){
+xdotool search --onlyvisible --class "firefox" windowfocus key \
+  --delay 35 --window %@ $1
+}
 
 # Copy url to clipboard
 firefox_command 'ctrl+l';

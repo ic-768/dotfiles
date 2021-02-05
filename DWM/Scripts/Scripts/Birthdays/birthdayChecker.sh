@@ -1,12 +1,12 @@
 #!/bin/bash
-sound_file="/home/ic768/Scripts/Birthdays/party.wav"
-Bday_file="/home/ic768/Scripts/Birthdays/bdayList"
-Today=`date '+%d %b'`
-Birthday=`awk "/$Today/"'{print $3 " " $4}' $Bday_file`
+SOUND_FILE="/home/ic768/Scripts/Birthdays/party.wav"
+BDAY_FILE="/home/ic768/Scripts/Birthdays/bdayList"
+TODAY=$(date '+%d %b')
+BIRTHDAY=$(awk "/$TODAY/"'{print $3 " " $4}' $BDAY_FILE)
 
-if [ "$Birthday" ]
+if [ "$BIRTHDAY" ]
 then
-  notify-send -u critical "It's $Birthday's birthday!";
-  aplay $sound_file;
+  notify-send -u critical "It's $BIRTHDAY's birthday!";
+  aplay $SOUND_FILE;
 fi
 
