@@ -24,7 +24,7 @@ static const char col_black[]       = "#000000";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_white, col_black, col_gray2 },
-	[SchemeSel]  = { col_white, col_green, col_cyan  },
+	[SchemeSel]  = { col_black, col_cyan, col_cyan  },
 };
 
 /* tagging */
