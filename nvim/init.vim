@@ -15,6 +15,8 @@ let g:vimtex_quickfix_mode= 0 "Ignores all warnings. Should disable when file is
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 packadd nvim-treesitter
+Plug 'nvim-treesitter/playground'
+
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -31,6 +33,7 @@ let g:coc_global_extensions = [
       \ 'coc-json',
 			\ 'coc-prettier',
 			\ 'coc-eslint',
+			\ 'coc-pyright',
       \ 'coc-emmet',
       \ 'coc-tag']
 
@@ -50,6 +53,10 @@ set tabstop=2
 set shiftwidth=2
 set mouse=a
 set cursorline
+"Change dir on file edit
+autocmd BufEnter * silent! lcd %:p:h 
+"netrw make browsing dir working dir
+let g:netrw_keepdir=0 
 
 set keymap=greek_utf-8
 set iminsert=0
@@ -67,4 +74,8 @@ nnoremap <c-l> :s/\C\([A-Z]\)/-\L\1/ge\|:s/"//g\|:s/,\ */;\r/g <Enter>
 "filetype plugin on
 set omnifunc=syntaxcomplete#-complete
 colorscheme onedark
+"use Escape to exit :term input mode 
+:tnoremap <Esc> <C-\><C-n> 
+
+
 "colorscheme myTheme

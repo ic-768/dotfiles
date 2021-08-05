@@ -17,7 +17,7 @@ static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray2[]       = "#444444"; 
 static const char col_gray3[]       = "#bbbbbb"; 
 static const char col_white[]       = "#eeeeee"; 
-static const char col_cyan[]        = "#3ffeca"; 
+static const char col_cyan[]        = "#83a598"; 
 static const char col_green[]       = "#286400"; 
 static const char col_black[]       = "#000000";
 
