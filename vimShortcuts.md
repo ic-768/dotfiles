@@ -1,3 +1,13 @@
+vim `grep -r ${word} | cut -d':' -f1` - grep recursively and open files in vim
+In vim, :n and :N to move between files
+
+:%d - delete whole file
+<c-n> - explore in new tab
+
+#FZF
+:Files
+:Buffers
+
 #NORMAL MODE
 & = repeat last substitute command
 <C-a> and <C-x> = arithmetic on next number
@@ -10,6 +20,7 @@ q/ search window
 <C-o> = one-shot command
 <C-r>0 = paste
 <C-r>= = expression register
+<C-r>=24\*8<CR> = paste expression register
 
 ##TEXT-BODY ACTIONS
 :{start},{end} {action} {arg}
@@ -70,8 +81,13 @@ is/as = sentence motions
 g& = rerun substitution with g flag
 v/ = visually select large text
 gf open file under cursor
+
+#SUGGESTIONS
 <C-x><C-f> = file suggestions
 <C-x><C-l> = line suggestions
+<C-n> = next suggestion
+<C-p> = previous suggestion
+<C-y> = accept suggestion
 
 ##Consistent Macros
 Record macro a -> see macro a with :reg a -> qA append to macro balls
@@ -100,6 +116,8 @@ mA = global mark
 :bp
 :wn = write and next
 :bd = close buffer
+:bufdo bd = close all buffers
+:sb = switch to open buffer
 
 ##ARG LIST
 :args
@@ -107,9 +125,17 @@ mA = global mark
 :argdo {ex command} = ex command on all arg files
 
 ##SPLITS
-<C-w>s = horizontal
-<C-w>v = vertical
+<C-w>s = create horizontal
+<C-w>v = create vertical
+
 <C-w> w/h/j/k/l = navigate
+<C-w> W/H/J/K/L = send window to extremity
+
+<C-w><C-r> = swap two splits
+
+<C-w>K = vertical to horizontal
+<C-w>H = horizontal to vertical
+
 <C-w> c/o = close/close all except
 <C-w>= = equalise height
 <C-w>_ = maximise height
@@ -157,3 +183,10 @@ When done: :w !sh
 
 #NETRW
 :n \*\* = recursively open in directory
+% = open new file for editing
+d = new directory
+R = rename file
+D = delete file
+<C-o> = return to prev file
+
+#POPUPS

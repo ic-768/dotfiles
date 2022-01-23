@@ -1,23 +1,10 @@
 call plug#begin('~/.config/nvim')
-Plug 'tpope/vim-surround'
-Plug 'terryma/vim-smooth-scroll'
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 20, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 20, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 35, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 35, 4)<CR>
-
+""" THEME
 Plug 'navarasu/onedark.nvim'
-Plug 'lervag/vimtex'
-let g:tex_flavor = 'latex'
-let g:vimtex_view_general_viewer = 'zathura'
-let g:vimtex_quickfix_mode= 0 "Ignores all warnings. Should disable when file is healthy!" 
-
-
+""" CODE 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 packadd nvim-treesitter
 Plug 'nvim-treesitter/playground'
-
-
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -25,7 +12,6 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
       \ 'coc-html',
@@ -36,18 +22,24 @@ let g:coc_global_extensions = [
 			\ 'coc-pyright',
       \ 'coc-emmet',
       \ 'coc-tag']
-
+""" UTILITY
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-surround'
+Plug 'terryma/vim-smooth-scroll'
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 20, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 20, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 35, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 35, 4)<CR>
+"let g:coc_snippet_next = '<tab>'
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-let g:coc_snippet_next = '<tab>'
 Plug 'ap/vim-css-color'
-
 call plug#end()
-"
+""" REMAPS AND SETTINGS 
 set ignorecase
 set nu
 set visualbell
-set relativenumber
+"set relativenumber
 set clipboard=unnamedplus
 set tabstop=2
 set shiftwidth=2
@@ -61,10 +53,6 @@ let g:netrw_keepdir=0
 set keymap=greek_utf-8
 set iminsert=0
 inoremap <c-l> <c-^>
-"get rid of ex mode
-map <S-q> <Nop>
-inoremap <c-l> <c-^>
-
 nnoremap <c-n> :Texplore <Enter>
 let g:markdown_fenced_languages = ['python', 'javascript', 'django']
 
@@ -76,6 +64,7 @@ set omnifunc=syntaxcomplete#-complete
 colorscheme onedark
 "use Escape to exit :term input mode 
 :tnoremap <Esc> <C-\><C-n> 
-
+"Toggle previous buffer with Backspace
+nnoremap <Backspace> <C-^>
 
 "colorscheme myTheme

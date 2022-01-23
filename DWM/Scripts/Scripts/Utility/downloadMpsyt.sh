@@ -4,5 +4,7 @@
 cat $1 | while read LINE # Read line-by-line
 do
 	DOWNLOADABLE=$(grep "http" $LINE) # If a link
-	youtube-dl --ignore-errors -x --audio-format mp3 --yes-playlist $DOWNLOADABLE 
+	if [-z "$DOWNLOADABLE"]; then 
+		youtube-dl --ignore-errors -x --audio-format mp3 --yes-playlist $DOWNLOADABLE 
+	fi
 done
