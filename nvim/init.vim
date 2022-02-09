@@ -1,10 +1,7 @@
 call plug#begin('~/.config/nvim')
-""" THEME
-Plug 'navarasu/onedark.nvim'
 """ CODE 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 packadd nvim-treesitter
-Plug 'nvim-treesitter/playground'
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -34,6 +31,11 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 35, 4)<CR>
 "let g:coc_snippet_next = '<tab>'
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 Plug 'ap/vim-css-color'
+
+Plug 'f-person/git-blame.nvim'
+let g:gitblame_message_template = '        <author> • <summary> • <date>'
+let g:gitblame_date_format = '%r'
+
 call plug#end()
 """ REMAPS AND SETTINGS 
 set ignorecase
@@ -44,7 +46,7 @@ set clipboard=unnamedplus
 set tabstop=2
 set shiftwidth=2
 set mouse=a
-set cursorline
+"set cursorline
 "Change dir on file edit
 autocmd BufEnter * silent! lcd %:p:h 
 "netrw make browsing dir working dir
@@ -58,13 +60,15 @@ let g:markdown_fenced_languages = ['python', 'javascript', 'django']
 
 " Format from JSX to CSS
 nnoremap <c-l> :s/\C\([A-Z]\)/-\L\1/ge\|:s/"//g\|:s/,\ */;\r/g <Enter>
+" Add braces to arrow function
+nnoremap <c-j> i{l%a}%areturn <Esc>
+" Remove braces from arrow function
+nnoremap <c-h> d/(<Enter>%/}<Enter>x
 
 "filetype plugin on
 set omnifunc=syntaxcomplete#-complete
-colorscheme onedark
+colorscheme gruvbox
 "use Escape to exit :term input mode 
 :tnoremap <Esc> <C-\><C-n> 
 "Toggle previous buffer with Backspace
 nnoremap <Backspace> <C-^>
-
-"colorscheme myTheme

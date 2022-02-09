@@ -1,6 +1,5 @@
 {
-"_coc.preferences.formatOnSaveFiletypes": ["javascript", "javascriptreact","typescript","typescriptreact"],
-"coc.preferences.formatOnSaveFiletypes": ["javascript", "javascriptreact","typescript","typescriptreact"],
+"coc.preferences.formatOnSaveFiletypes": ["javascript", "javascriptreact","typescript","typescriptreact","css","scss"],
 "eslint.alwaysShowStatus":true,
-"prettier.semi":true
+"prettier.semi": true
 }
