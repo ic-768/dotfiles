@@ -1,5 +1,16 @@
 {
-"coc.preferences.formatOnSaveFiletypes": ["javascript", "javascriptreact","typescript","typescriptreact","css","scss"],
-"eslint.alwaysShowStatus":true,
-"prettier.semi": true
+	"explorer.width": 50,
+	"explorer.previewAction.onHover": false,
+	"explorer.keyMappings.global": {
+		"<cr>": ["expandable?", "expand", "open"],
+		"v":"open:vsplit"
+	},
+	"coc.preferences.formatOnSaveFiletypes": ["javascript","javascriptreact","typescript","typescriptreact"],
+	"eslint.alwaysShowStatus":true,
+	"prettier.semi": true,
+
+
+	"python.linting.pylintEnabled":false,
+	"python.formatting.provider":"black",
+	"python.linting.lintOnSave":true
 }
