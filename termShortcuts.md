@@ -1,3 +1,5 @@
+#DWM 
+ MOD+,/. = toggle screen
 #Remote VLC
 ssh grandDaddy
 export DISPLAY=:0 ( or whatever $DISPLAY is on remote host )

@@ -1,30 +1,29 @@
-vim `grep -r ${word} | cut -d':' -f1` - grep recursively and open files in vim
-In vim, :n and :N to move between files
+# Coc explorer
+:E = open / close
+:S = open window mode
+v or s = (dir) make top of tree
+         (file) open in split
+l/h = expand/collapse directory
+a = add file
+A = add directory
+dF = delete
+:f = search
+:F = fuzzy search
+J,K = select 
+
+vim `grep -rl ${word} | cut -d':' -f1` - grep recursively and open files in vim
+In vim, :n and :N to move between files ( single found instance between them )
+        :bn and :p to move between buffers ( won't see same file again )
+:wn = write and next
 
 :%d - delete whole file
-<c-n> - explore in new tab
 
-#FZF
-:Files
-:Buffers
-
-#NORMAL MODE
-& = repeat last substitute command
-<C-a> and <C-x> = arithmetic on next number
-gv = last visual selection
-q: ex command window
-q/ search window
-<C-z> suspend (go to terminal)
-
-#INSERT MODE
-<C-o> = one-shot command
-<C-r>0 = paste
-<C-r>= = expression register
-<C-r>=24\*8<CR> = paste expression register
+#COMMAND-LINE MODE
+<C-r> and <C-w> = put word under cursor 
+:put=range(1,10,2) = paste range ( can omit arg3 )
 
 ##TEXT-BODY ACTIONS
 :{start},{end} {action} {arg}
-
 . = current line
 % = all lines
 $ = last line
@@ -42,10 +41,7 @@ actions = y,t,m,s, sort, normal etc.
 :1,4 normal .
 :1,4 normal @q
 
-##OTHER
-<C-r> <C-w> = copy word to ex
-:<C-f> command line window
-@: = repeat last ex
+## EXTRAS
 :grep txt \* = grep for txt everywhere in dir ( cnext, cprev to navigate)
 
 :edit % <TAB> = use filename in ex
@@ -61,6 +57,22 @@ actions = y,t,m,s, sort, normal etc.
 :g/a/d = globally delete all containing a
 :v/a/d = globally delete all NOT containing a
 
+#NORMAL MODE
+& = repeat last substitute command
+<C-a> and <C-x> = arithmetic on next number
+gv = last visual selection
+q: ex command window
+q/ search window
+<C-z> suspend (go to terminal)
+@: = repeat last ex
+
+#INSERT MODE
+<C-o> = one-shot command
+<C-r>0 = paste
+<C-r>= = expression register
+<C-r>=24\*8<CR> = paste expression register
+
+
 #LISTS
 :changes
 g; and g,
@@ -69,18 +81,13 @@ g; and g,
 <C-o> and <C-i>
 
 #TIPS
-REGISTERS ARE JUST TEXT. YOU CAN PASTE A MACRO, EDIT IT, AND CUT IT BACK IN!!!
 g0 = go to start of display line
 g$ = go to end of display line
 "0 = yank register
 
-W = gets around faster
 daw = delete word cleanly
-ea = append to word
-is/as = sentence motions
 g& = rerun substitution with g flag
 v/ = visually select large text
-gf open file under cursor
 
 #SUGGESTIONS
 <C-x><C-f> = file suggestions
@@ -88,10 +95,6 @@ gf open file under cursor
 <C-n> = next suggestion
 <C-p> = previous suggestion
 <C-y> = accept suggestion
-
-##Consistent Macros
-Record macro a -> see macro a with :reg a -> qA append to macro balls
-apply macro to a selection : visual select -> :normal @a
 
 #VIMSCRIPT
 :let i=i
@@ -114,7 +117,6 @@ mA = global mark
 :blast
 :bn
 :bp
-:wn = write and next
 :bd = close buffer
 :bufdo bd = close all buffers
 :sb = switch to open buffer
@@ -143,8 +145,6 @@ mA = global mark
 N<C-w>_ = height to n rows
 N<C-w>| = width to n rows
 
-### Tabs are for different jobs, use windows for relevant things
-
 :lcd {path} = set working directory for split
 :windo lcd {path} = working dir for whole window
 
@@ -156,7 +156,6 @@ N<C-w>| = width to n rows
 :tabm N = move tab
 
 ## Vim Surround
-
 ys $OBJECT $SYMBOL = add symbol around object
 yss = sentence
 VS $SYMBOL = surround
@@ -164,11 +163,11 @@ VS $SYMBOL = surround
 :r read file
 zM = refold
 zf = codeFold
-za = unfold zE = delete all folds
+za = unfold 
+zE = delete all folds
 zR = unfold all
 
 # BASICS
-
 @: = run last colon command
 
 #EXTERNAL COMMANDS & UTILITIES
@@ -182,11 +181,12 @@ Block paste
 When done: :w !sh
 
 #NETRW
+i = cycle between thin long and tree listing
+gn = make directory top of tree
+
 :n \*\* = recursively open in directory
 % = open new file for editing
 d = new directory
 R = rename file
 D = delete file
 <C-o> = return to prev file
-
-#POPUPS

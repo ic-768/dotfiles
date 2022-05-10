@@ -90,7 +90,7 @@ let s:gb.dark0_hard  = ['#1d2021', 234]     " 29-32-33
 let s:gb.dark0       = ['#282828', 000]     " 40-40-40  #2nd index is background for some reason
 let s:gb.dark0_soft  = ['#32302f', 236]     " 50-48-47
 let s:gb.dark1       = ['#3c3836', 237]     " 60-56-54
-let s:gb.dark2       = ['#504945', 239]     " 80-73-69
+let s:gb.dark2       = ['#504945', 239]     " 80-73-69 #Floating window
 let s:gb.dark3       = ['#665c54', 241]     " 102-92-84
 let s:gb.dark4       = ['#7c6f64', 243]     " 124-111-100
 let s:gb.dark4_256   = ['#7c6f64', 243]     " 124-111-100
@@ -427,10 +427,10 @@ call s:HL('GruvboxFg2', s:fg2)
 call s:HL('GruvboxFg3', s:fg3)
 call s:HL('GruvboxFg4', s:fg4)
 call s:HL('GruvboxGray', s:gray)
-call s:HL('GruvboxBg0', s:bg0)
-call s:HL('GruvboxBg1', s:bg1)
-call s:HL('GruvboxBg2', s:bg2)
-call s:HL('GruvboxBg3', s:bg3)
+call s:HL('GruvboxBg0', s:bg4)
+call s:HL('GruvboxBg1', s:bg4)
+call s:HL('GruvboxBg2', s:bg4)
+call s:HL('GruvboxBg3', s:bg4)
 call s:HL('GruvboxBg4', s:bg4)
 
 call s:HL('GruvboxRed', s:red)

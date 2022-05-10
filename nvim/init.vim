@@ -1,7 +1,11 @@
 call plug#begin('~/.config/nvim')
-""" CODE 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+""" CODE
+Plug 'terryma/vim-expand-region'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'mbbill/undotree'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 packadd nvim-treesitter
+
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -9,7 +13,11 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 EOF
-Plug 'neoclide/coc.nvim', {'branch': 'release'}  "This is somehow responsible for the sidebar
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim' "Config is farther down
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
       \ 'coc-html',
       \ 'coc-css',
@@ -22,8 +30,6 @@ let g:coc_global_extensions = [
       \ 'coc-explorer',
       \ 'coc-tag']
 """ UTILITY
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-smooth-scroll'
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 20, 2)<CR>
@@ -39,7 +45,7 @@ let g:gitblame_message_template = '        <author> • <summary> • <date>'
 let g:gitblame_date_format = '%r'
 
 call plug#end()
-""" REMAPS AND SETTINGS 
+""" REMAPS AND SETTINGS
 set ignorecase
 set nu
 set visualbell
@@ -50,23 +56,12 @@ set mouse=a
 set ve=all "freely move cursor
 "set cursorline
 "Change dir on file edit
-autocmd BufEnter * silent! lcd %:p:h 
+autocmd BufEnter * silent! lcd %:p:h
 "netrw make browsing dir working dir
-let g:netrw_keepdir=0 
-
+let g:netrw_keepdir=0
 set keymap=greek_utf-8
 set iminsert=0
-inoremap <c-l> <c-^>
-"nnoremap <c-n> :Texplore <Enter>
 let g:markdown_fenced_languages = ['python', 'javascript', 'django']
-
-" Format from JSX to CSS
-nnoremap <c-l> :s/\C\([A-Z]\)/-\L\1/ge\|:s/"//g\|:s/,\ */;\r/g <Enter>
-" Add braces to arrow function
-nnoremap <c-j> i{l%a}%areturn <Esc>
-"Remove braces from arrow function
-nnoremap <c-h> di{v%pdw
-
 
 "filetype plugin on
 set omnifunc=syntaxcomplete#-complete
@@ -76,13 +71,20 @@ highlight clear CocInfoSign
 highlight clear SignColumn
 set signcolumn:number
 
+nnoremap <c-n> :Texplore <Enter>
+" Format from JSX to CSS
+nnoremap <c-l> :s/\C\([A-Z]\)/-\L\1/ge\|:s/"//g\|:s/,\ */;\r/g <Enter>
+" Add braces to arrow function
+nnoremap <c-j> i{l%a}%areturn <Esc>
+"Remove braces from arrow function
+nnoremap <c-h> di{v%pdw
+
 "use Escape to exit :term input mode 
 :tnoremap <Esc> <C-\><C-n> 
 "Toggle previous buffer with Backspace
 nnoremap <Backspace> <C-^>
 
 " COPIED FROM COC NVIM DEFAULT GITHUB CONFIG
-"" GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> ,i <Plug>(coc-implementation)
@@ -116,7 +118,18 @@ let g:coc_explorer_global_presets = {
 \   },
 \ }
 
+let mapleader = ","
 nmap :E <Cmd>CocCommand explorer<CR>
 nmap :S <Cmd>CocCommand explorer --preset floating<CR>
+nmap <leader>, <Cmd>Telescope find_files disable_devicons=true<CR>
+
+lua <<EOF
+require('telescope').setup {
+	defaults={
+	file_ignore_patterns = { "node_modules" }
+	}
+}
+EOF
+
 
 
