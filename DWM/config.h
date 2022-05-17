@@ -11,13 +11,13 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int horizpadbar        = 5;        /* horizontal padding for statusbar */
-static const int vertpadbar         = 5;        /* vertical padding for statusbar */
+static const int vertpadbar         = 4;        /* vertical padding for statusbar */
 static const char *fonts[]          = { "Font Awesome 5 Free Solid:size=11" };
-static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray2[]       = "#444444"; 
-static const char col_gray3[]       = "#bbbbbb"; 
-static const char col_white[]       = "#eeeeee"; 
-static const char col_cyan[]        = "#83a598"; 
+static const char dmenufont[]       = "Fantasque Sans Mono:size=12";
+static const char col_gray2[]       = "#444444";
+static const char col_gray3[]       = "#bbbbbb";
+static const char col_white[]       = "#eeeeee";
+static const char col_cyan[]        = "#507165";
 static const char col_orange[]       = "#98971a";
 static const char col_black[]       = "#000000";
 
@@ -77,12 +77,12 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray2, "-nf", col_gray3, "-sb", col_white, "-sf", col_white, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_white, "-sb", col_cyan, "-sf", col_white, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -107,7 +107,7 @@ static Key keys[] = {
 //	{ MODKEY|ShiftMask,             XK_k,      inplacerotate,  {.i = -1} },
 	{ MODKEY|ShiftMask,             XK_j,      inplacerotate,  {.i = +2} },
 	{ MODKEY|ShiftMask,             XK_k,      inplacerotate,  {.i = -2} },
-	{ MODKEY|ShiftMask,             XK_h,      incnmaster,     {.i = +1 } }, 
+	{ MODKEY|ShiftMask,             XK_h,      incnmaster,     {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_l,      incnmaster,     {.i = -1 } },
 	{ ALTKEY|ShiftMask,             XK_l,      setmfact,       {.f = -0.02} },
 	{ ALTKEY|ShiftMask,             XK_h,      setmfact,       {.f = +0.02} },

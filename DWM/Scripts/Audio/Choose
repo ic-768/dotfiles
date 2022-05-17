@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Name: /usr/local/bin/audioswitch
+# Usage: audioswitch; audioswitch 1; audioswitch 2;  audioswitch 3; audioswitch 4
+
+CARD_1="pci-0000_00_1f.3"             ### HDMI Audio Controller of NVidia GTX 660
+CARD_1_PROFILE_1="hdmi-stereo"          # LG ULTRAWIDE
+CARD_0="usb-M-Audio_M-Track-00"             ### Built-in Audio
+CARD_0_PROFILE_1="analog-stereo"        # Headphones
+
+# Read the user's input
+CHOICE="${@}"
+choice() {
+    if   [ "$CHOICE" == 1 ]; then CARD="$CARD_1"; PROF="$CARD_1_PROFILE_1" # TV
+    elif [ "$CHOICE" == 2 ]; then CARD="$CARD_0"; PROF="$CARD_0_PROFILE_1" # SPEAKERS
+    else
+        echo -e "\nYou should choice between:"
+        echo -e "\n\t[1] TV\n\t[2] SPEAKER\n"
+        echo -n "Your choice: "; read CHOICE; echo; choice; # call the function again
+    fi
+}; choice # call the function
+
+# Set the choosen card profile as sink
+pactl set-card-profile "alsa_card.${CARD}" "output:${PROF}";
+
+# Set the default sink to the new one
+pacmd set-default-sink "alsa_output.${CARD}.${PROF}" &> /dev/null
+
+# Redirect the existing inputs to the new sink
+for i in $(pacmd list-sink-inputs | grep index | awk '{print $2}'); do
+    pacmd move-sink-input "$i" "alsa_output.${CARD}.${PROF}" &> /dev/null
+done

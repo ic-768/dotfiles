@@ -13,9 +13,15 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 EOF
+set nocompatible
+filetype plugin indent on
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim' "Config is farther down
+Plug 'samoshkin/vim-mergetool'
+
+let g:mergetool_layout = 'mr'
+let g:mergetool_prefer_revision = 'local'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
@@ -55,23 +61,20 @@ set shiftwidth=2
 set mouse=a
 set ve=all "freely move cursor
 "set cursorline
-"Change dir on file edit
-autocmd BufEnter * silent! lcd %:p:h
 "netrw make browsing dir working dir
 let g:netrw_keepdir=0
 set keymap=greek_utf-8
 set iminsert=0
 let g:markdown_fenced_languages = ['python', 'javascript', 'django']
 
-"filetype plugin on
 set omnifunc=syntaxcomplete#-complete
 colorscheme gruvbox
 highlight clear CocErrorSign
-highlight clear CocInfoSign 
+highlight clear CocInfoSign
 highlight clear SignColumn
 set signcolumn:number
 
-nnoremap <c-n> :Texplore <Enter>
+"nnoremap <c-n> :Texplore <Enter>
 " Format from JSX to CSS
 nnoremap <c-l> :s/\C\([A-Z]\)/-\L\1/ge\|:s/"//g\|:s/,\ */;\r/g <Enter>
 " Add braces to arrow function
@@ -79,18 +82,23 @@ nnoremap <c-j> i{l%a}%areturn <Esc>
 "Remove braces from arrow function
 nnoremap <c-h> di{v%pdw
 
-"use Escape to exit :term input mode 
-:tnoremap <Esc> <C-\><C-n> 
+"use Escape to exit :term input mode
+:tnoremap <Esc> <C-\><C-n>
 "Toggle previous buffer with Backspace
 nnoremap <Backspace> <C-^>
 
+let mapleader = ","
 " COPIED FROM COC NVIM DEFAULT GITHUB CONFIG
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> ,i <Plug>(coc-implementation)
+nmap <leader> i  <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> g] <Plug>(coc-diagnostic-next)
 nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+
+"<C-k> to autocomplete
+inoremap <silent><expr> <C-k> coc#refresh()
+nmap <silent> <C-k> viwo<Esc>ea<C-k>
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -118,10 +126,17 @@ let g:coc_explorer_global_presets = {
 \   },
 \ }
 
-let mapleader = ","
 nmap :E <Cmd>CocCommand explorer<CR>
 nmap :S <Cmd>CocCommand explorer --preset floating<CR>
+
+"Telescope
 nmap <leader>, <Cmd>Telescope find_files disable_devicons=true<CR>
+
+"Open sourced scss
+nmap <leader>s /import.*\.scss/e<CR> <Plug>(coc-definition):noh<CR>
+
+"Add className to component
+nmap <leader>c :s/\(<\w*\)\(\_.\{-}\)/\1 className=""\2/e <CR> :noh<CR> f"a
 
 lua <<EOF
 require('telescope').setup {
@@ -130,6 +145,3 @@ require('telescope').setup {
 	}
 }
 EOF
-
-
-
