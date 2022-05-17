@@ -3,7 +3,8 @@
 	"explorer.previewAction.onHover": false,
 	"explorer.keyMappings.global": {
 		"<cr>": ["expandable?", "expand", "open"],
-		"v":"open:vsplit"
+		"v":"open:vsplit",
+		"L":"copyRelativeFilepath"
 	},
 	"coc.preferences.formatOnSaveFiletypes": ["javascript","typescript","javascriptreact","typescriptreact","python"],
 	"eslint.alwaysShowStatus":true,

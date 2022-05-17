@@ -138,6 +138,9 @@ nmap <leader>s /import.*\.scss/e<CR> <Plug>(coc-definition):noh<CR>
 "Add className to component
 nmap <leader>c :s/\(<\w*\)\(\_.\{-}\)/\1 className=""\2/e <CR> :noh<CR> f"a
 
+"Use script to create react component
+nmap <leader>m :cd <C-r>0<CR>:!~/Scripts/Web/react-component.sh
+
 lua <<EOF
 require('telescope').setup {
 	defaults={
