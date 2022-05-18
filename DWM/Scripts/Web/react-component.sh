@@ -6,7 +6,9 @@
 #   3) index.js file that exports the component component
 
 # Arguments:
-#   Name for the React component (must be the very first argument)
+#   1) Name for the React component
+#   2) Target directory
+#   3) Optional flags
 
 # Flags:
 #   -t) Specify if using typescript for React component
@@ -16,6 +18,8 @@
 
 
 component_name="$1"
+shift
+target_dir="$1"
 shift
 capitalised_name=$(echo "$component_name" | awk '{$1=toupper(substr($1,0,1))substr($1,2)}1')
 
@@ -55,6 +59,8 @@ main(){
 			*) help; exit 1;;
 		esac
 	done
+
+	cd "$target_dir" || exit
 
 	if [ "$capitalise_directory" = true ]; 
 	then componentDirectory="$capitalised_name"; 

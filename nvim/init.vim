@@ -141,8 +141,8 @@ nmap <leader>c :s/\(<\w*\)\(\_.\{-}\)/\1 className=""\2/e <CR> :noh<CR> f"a
 "trigger when hovering over filename in coc-explorer to create a react component
 function! MakeComponent()
   let componentName = input('Enter filename: ')
-	call CocAction('runCommand', 'explorer.doAction', 0, ['copyRelativeFilepath'])
-  return ':cd '."\<c-r>".'0'."\<cr>".':!~/Scripts/Web/react-component.sh '.componentName." -tsc\<cr>".':cd -'."\<cr>"
+	call CocAction('runCommand', 'explorer.doAction', 0, ['copyFilepath'])
+  return ':!~/Scripts/Web/react-component.sh '.componentName." \<c-r>".'0 -tsc'."\<cr>"." -tsc\<cr>"."\<cr>"
 endfunction
 
 nnoremap <expr> <leader>m MakeComponent()
