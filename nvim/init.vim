@@ -74,7 +74,7 @@ highlight clear CocInfoSign
 highlight clear SignColumn
 set signcolumn:number
 
-"nnoremap <c-n> :Texplore <Enter>
+nnoremap <c-n> :Texplore <Enter>
 " Format from JSX to CSS
 nnoremap <c-l> :s/\C\([A-Z]\)/-\L\1/ge\|:s/"//g\|:s/,\ */;\r/g <Enter>
 " Add braces to arrow function
@@ -138,8 +138,14 @@ nmap <leader>s /import.*\.scss/e<CR> <Plug>(coc-definition):noh<CR>
 "Add className to component
 nmap <leader>c :s/\(<\w*\)\(\_.\{-}\)/\1 className=""\2/e <CR> :noh<CR> f"a
 
-"Use script to create react component
-nmap <leader>m :cd <C-r>0<CR>:!~/Scripts/Web/react-component.sh
+"trigger when hovering over filename in coc-explorer to create a react component
+function! MakeComponent()
+  let componentName = input('Enter filename: ')
+	call CocAction('runCommand', 'explorer.doAction', 0, ['copyRelativeFilepath'])
+  return ':cd '."\<c-r>".'0'."\<cr>".':!~/Scripts/Web/react-component.sh '.componentName." -tsc\<cr>".':cd -'."\<cr>"
+endfunction
+
+nnoremap <expr> <leader>m MakeComponent()
 
 lua <<EOF
 require('telescope').setup {
