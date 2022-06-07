@@ -69,10 +69,14 @@ let g:markdown_fenced_languages = ['python', 'javascript', 'django']
 
 set omnifunc=syntaxcomplete#-complete
 colorscheme gruvbox
+"transparent background
+hi! Normal ctermbg=NONE guibg=NONE
+
 highlight clear CocErrorSign
 highlight clear CocInfoSign
 highlight clear SignColumn
 set signcolumn:number
+set expandtab
 
 nnoremap <c-n> :Texplore <Enter>
 " Format from JSX to CSS
@@ -91,10 +95,11 @@ let mapleader = ","
 " COPIED FROM COC NVIM DEFAULT GITHUB CONFIG
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
-nmap <leader> i  <Plug>(coc-implementation)
+nmap <leader>i  <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> g] <Plug>(coc-diagnostic-next)
 nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+nmap <silent> gs <Plug>(coc-rename)
 
 "<C-k> to autocomplete
 inoremap <silent><expr> <C-k> coc#refresh()
@@ -154,3 +159,8 @@ require('telescope').setup {
 	}
 }
 EOF
+
+" have vim start coc-explorer if vim started with folder
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'CocCommand explorer --preset floating' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
