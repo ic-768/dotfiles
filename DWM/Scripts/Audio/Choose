@@ -11,13 +11,13 @@ CARD_0_PROFILE_1="analog-stereo"        # Headphones
 # Read the user's input
 CHOICE="${@}"
 choice() {
-    if   [ "$CHOICE" == 1 ]; then CARD="$CARD_1"; PROF="$CARD_1_PROFILE_1" # TV
-    elif [ "$CHOICE" == 2 ]; then CARD="$CARD_0"; PROF="$CARD_0_PROFILE_1" # SPEAKERS
-    else
-        echo -e "\nYou should choice between:"
-        echo -e "\n\t[1] TV\n\t[2] SPEAKER\n"
-        echo -n "Your choice: "; read CHOICE; echo; choice; # call the function again
-    fi
+	if   [ "$CHOICE" == 1 ]; then CARD="$CARD_1"; PROF="$CARD_1_PROFILE_1" # TV
+	elif [ "$CHOICE" == 2 ]; then CARD="$CARD_0"; PROF="$CARD_0_PROFILE_1" # SPEAKERS
+	else
+		echo -e "\nYou should choice between:"
+		echo -e "\n\t[1] TV\n\t[2] SPEAKER\n"
+		echo -n "Your choice: "; read CHOICE; echo; choice; # call the function again
+	fi
 }; choice # call the function
 
 # Set the choosen card profile as sink
@@ -28,5 +28,5 @@ pacmd set-default-sink "alsa_output.${CARD}.${PROF}" &> /dev/null
 
 # Redirect the existing inputs to the new sink
 for i in $(pacmd list-sink-inputs | grep index | awk '{print $2}'); do
-    pacmd move-sink-input "$i" "alsa_output.${CARD}.${PROF}" &> /dev/null
+	pacmd move-sink-input "$i" "alsa_output.${CARD}.${PROF}" &> /dev/null
 done

@@ -39,7 +39,7 @@ help(){
 
 	Expects the React component name as parameter.
 
-	Optional flags: 
+	Optional flags:
 	-t) Create typescript component.
 	-s) Use .scss instead of .css for style.
 	-c) Use if you want the directory capitalised
@@ -62,9 +62,9 @@ main(){
 
 	cd "$target_dir" || exit
 
-	if [ "$capitalise_directory" = true ]; 
-	then componentDirectory="$capitalised_name"; 
-	else componentDirectory="$component_name"; 
+	if [ "$capitalise_directory" = true ];
+	then componentDirectory="$capitalised_name";
+	else componentDirectory="$component_name";
 	fi
 
 	mkdir "$componentDirectory";

@@ -1,3 +1,4 @@
+#!/bin/sh
 xmodmap -e "remove Lock = Caps_Lock";
 xmodmap -e "keysym Escape = Caps_Lock"
 xmodmap -e "keysym Caps_Lock = Escape"

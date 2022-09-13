@@ -4,4 +4,4 @@
 
 
 var=$(echo "$1" | sed -Ee "s/(yewtu.be|invidious).*channel\//www.youtube.com\/feeds\/videos.xml?channel_id=/")
-liferea -a $var
+liferea -a "$var"

@@ -1,9 +1,8 @@
 #!/bin/bash
 
-cd /home/ic768 ;
-cd bcwc_pcie;
+cd /home/ic768 || exit;
+cd /home/ic768/bcwc_pcie || exit;
 make;
 sudo make install;
 sudo depmod;
-sudo modprobe -r bdc_pci;
 sudo modprobe facetimehd;
