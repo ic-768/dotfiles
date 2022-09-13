@@ -13,9 +13,10 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 EOF
+
+Plug 'nvim-treesitter/nvim-treesitter-context'
 set nocompatible
 filetype plugin indent on
-
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim' "Config is farther down
 Plug 'samoshkin/vim-mergetool'
@@ -66,6 +67,7 @@ let g:netrw_keepdir=0
 set keymap=greek_utf-8
 set iminsert=0
 let g:markdown_fenced_languages = ['python', 'javascript', 'django']
+set relativenumber
 
 set omnifunc=syntaxcomplete#-complete
 colorscheme gruvbox
@@ -160,7 +162,15 @@ require('telescope').setup {
 }
 EOF
 
-" have vim start coc-explorer if vim started with folder
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'CocCommand explorer --preset floating' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+" :DiffSaved to see diff of current (unsaved) buffer
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
 
+"highlight on yank
+au TextYankPost * silent! lua vim.highlight.on_yank()
