@@ -16,11 +16,11 @@ font:
   normal:
     #family: Iosevka ss09 # should be "Menlo" or something on macOS
     #family: UbuntuMono # should be "Menlo" or something on macOS
-    family: FantasqueSansMono # should be "Menlo" or something on macOS
+    family: FantasqueSansMono Nerd Font # should be "Menlo" or something on macOS
   size: 9 # Colors (Dracula)
 
   #family: Courier # should be "Menlo" or something on macOS.
-                  
+
   # Style can be specified to pick a specific face.
   # style: Regular
   # The bold font face
@@ -113,4 +113,4 @@ colors:
 
 # Visual Bell
 # ...
-background_opacity: 0.92
+background_opacity: 0.96
