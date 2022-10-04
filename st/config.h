@@ -108,7 +108,7 @@ static const char *colorname[] = {
 
    /* 8 bright colors */
 
-  "#111111",
+  "#000000", /* zsh autosuggest color */
   "#ff6e67",
   "#5af78e",
   "#f4f99d",
