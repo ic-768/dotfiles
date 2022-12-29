@@ -1,19 +1,8 @@
 call plug#begin('~/.config/nvim')
 """ CODE
-Plug 'terryma/vim-expand-region'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'mbbill/undotree'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-packadd nvim-treesitter
-
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-  }
-}
-EOF
-
 Plug 'nvim-treesitter/nvim-treesitter-context'
 set nocompatible
 filetype plugin indent on
@@ -52,6 +41,16 @@ let g:gitblame_message_template = '        <author> • <summary> • <date>'
 let g:gitblame_date_format = '%r'
 
 call plug#end()
+
+"Has to be called after plug#end to avoid error
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+  }
+}
+EOF
+
 """ REMAPS AND SETTINGS
 set ignorecase
 set nu

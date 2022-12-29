@@ -1,5 +1,5 @@
 {
-  "explorer.icon.enableNerdfont":true,
+  "explorer.icon.enableNerdfont":false,
   "explorer.width": 50,
   "explorer.previewAction.onHover":false,
   "explorer.keyMappings.global": {
@@ -15,9 +15,9 @@
       }
     }
   },
+ "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript","javascriptreact","typescriptreact","python","css","scss","html"],
   "eslint.enable": true,
   "eslint.alwaysShowStatus":true,
-"coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript","javascriptreact","typescriptreact","python","css","scss","html"],
   "prettier.semi": true,
   "python.linting.pylintEnabled":false,
   "python.formatting.provider":"black",
