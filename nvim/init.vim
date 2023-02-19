@@ -136,7 +136,8 @@ nmap :E <Cmd>CocCommand explorer<CR>
 nmap :S <Cmd>CocCommand explorer --preset floating<CR>
 
 "Telescope
-nmap <leader>, <Cmd>Telescope find_files disable_devicons=true<CR>
+nmap <leader><leader> <Cmd>Telescope find_files disable_devicons=true<CR>
+nmap <leader>f <Cmd>Telescope live_grep<CR>
 
 "Open sourced scss
 nmap <leader>s /import.*\.scss/e<CR> <Plug>(coc-definition):noh<CR>
@@ -172,4 +173,4 @@ endfunction
 com! DiffSaved call s:DiffWithSaved()
 
 "highlight on yank
-au TextYankPost * silent! lua vim.highlight.on_yank()
+"au TextYankPost * silent! lua vim.highlight.on_yank()
