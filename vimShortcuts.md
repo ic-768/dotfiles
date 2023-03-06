@@ -1,3 +1,6 @@
+`:sort u`
+keep only unique
+
 in function or object `vi{<ESC>`
 gets you to bottom 
 

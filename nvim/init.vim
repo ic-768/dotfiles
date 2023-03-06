@@ -1,3 +1,4 @@
+"CocInstall yaegassy/coc-tailwindcss3 for tailwind autocompletion
 call plug#begin('~/.config/nvim')
 """ CODE
 Plug 'ntpeters/vim-better-whitespace'
@@ -25,6 +26,7 @@ let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ 'coc-explorer',
       \ 'coc-tag']
+
 """ UTILITY
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-smooth-scroll'
