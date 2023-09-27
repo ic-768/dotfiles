@@ -1,8 +1,8 @@
-#DWM 
+# DWM 
 `MOD+,/.` 
 toggle screen
 
-#Remote VLC
+# Remote VLC
 `ssh` 
 grandDaddy
 
@@ -52,16 +52,27 @@ Send or Receive file / alias in /etc/hosts
 `ln -s $fullTargetDirectory $fullLinkDirectory`  
 create fullLinkDIrectory to fullTargetDirectory
 
-#INTERNET
+# INTERNET
 `nmcli device wifi rescan && nmcli device wifi list` 
 scan and print networks
 
 `nmcli device wifi connect $NETWORK password $PASSWORD`
 connect to a wifi
 
-#MEDIA
+# MEDIA
 `ffmpeg -i $(youtube-dl -f best --get-url "https://youtube.com/watch?v=mUq4bRxRffU") -ss 01:10 -t 40 test.mp4`  
 download part of video
 
 `grip`
 markdown viewer
+
+
+# SCHEDULING
+`at 18:00`
+run a command at this time. Write command and save with Ctrl+d.
+
+`atq` 
+lists jobs scheduled
+
+`at -c $JOBNUMBER`
+see command for specific job
