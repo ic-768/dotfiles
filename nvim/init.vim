@@ -1,4 +1,4 @@
-"CocInstall yaegassy/coc-tailwindcss3 for tailwind autocompletion
+"CocInstall @yaegassy/coc-tailwindcss3 for tailwind autocompletion
 call plug#begin('~/.config/nvim')
 """ CODE
 Plug 'ntpeters/vim-better-whitespace'
@@ -10,6 +10,7 @@ filetype plugin indent on
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim' "Config is farther down
 Plug 'samoshkin/vim-mergetool'
+Plug 'ThePrimeagen/harpoon'
 
 let g:mergetool_layout = 'mr'
 let g:mergetool_prefer_revision = 'local'
@@ -29,6 +30,7 @@ let g:coc_global_extensions = [
 
 """ UTILITY
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-smooth-scroll'
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 20, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 20, 2)<CR>
@@ -81,6 +83,7 @@ highlight clear SignColumn
 set signcolumn:number
 set expandtab
 
+let mapleader = ","
 nnoremap <c-n> :Texplore <Enter>
 " Format from JSX to CSS
 nnoremap <c-l> :s/\C\([A-Z]\)/-\L\1/ge\|:s/"//g\|:s/,\ */;\r/g <Enter>
@@ -93,8 +96,14 @@ nnoremap <c-h> di{v%pdw
 :tnoremap <Esc> <C-\><C-n>
 "Toggle previous buffer with Backspace
 nnoremap <Backspace> <C-^>
+nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
+nnoremap <leader>w :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <leader>j :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <leader>k :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <leader>l :lua require("harpoon.ui").nav_file(3)<CR>
 
-let mapleader = ","
+
+
 " COPIED FROM COC NVIM DEFAULT GITHUB CONFIG
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -140,6 +149,7 @@ nmap :S <Cmd>CocCommand explorer --preset floating<CR>
 "Telescope
 nmap <leader><leader> <Cmd>Telescope find_files disable_devicons=true<CR>
 nmap <leader>f <Cmd>Telescope live_grep<CR>
+nmap <leader>g <Cmd>Telescope git_status<CR>
 
 "Open sourced scss
 nmap <leader>s /import.*\.scss/e<CR> <Plug>(coc-definition):noh<CR>
@@ -176,3 +186,4 @@ com! DiffSaved call s:DiffWithSaved()
 
 "highlight on yank
 "au TextYankPost * silent! lua vim.highlight.on_yank()
+"
