@@ -151,6 +151,9 @@ nmap <leader><leader> <Cmd>Telescope find_files disable_devicons=true<CR>
 nmap <leader>f <Cmd>Telescope live_grep<CR>
 nmap <leader>g <Cmd>Telescope git_status<CR>
 
+nmap <C-m> <Cmd>:lua require("harpoon.ui").nav_prev()<CR>
+nmap <C-h> <Cmd>:lua require("harpoon.ui").nav_next() <CR>
+
 "Open sourced scss
 nmap <leader>s /import.*\.scss/e<CR> <Plug>(coc-definition):noh<CR>
 
