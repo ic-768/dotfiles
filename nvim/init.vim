@@ -98,11 +98,6 @@ nnoremap <c-h> di{v%pdw
 nnoremap <Backspace> <C-^>
 nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
 nnoremap <leader>w :lua require("harpoon.ui").toggle_quick_menu()<CR>
-nnoremap <leader>j :lua require("harpoon.ui").nav_file(1)<CR>
-nnoremap <leader>k :lua require("harpoon.ui").nav_file(2)<CR>
-nnoremap <leader>l :lua require("harpoon.ui").nav_file(3)<CR>
-
-
 
 " COPIED FROM COC NVIM DEFAULT GITHUB CONFIG
 nmap <silent> gd <Plug>(coc-definition)
@@ -151,8 +146,8 @@ nmap <leader><leader> <Cmd>Telescope find_files disable_devicons=true<CR>
 nmap <leader>f <Cmd>Telescope live_grep<CR>
 nmap <leader>g <Cmd>Telescope git_status<CR>
 
-nmap <C-m> <Cmd>:lua require("harpoon.ui").nav_prev()<CR>
-nmap <C-h> <Cmd>:lua require("harpoon.ui").nav_next() <CR>
+nmap <C-g> <Cmd>:lua require("harpoon.ui").nav_prev()<CR>
+nmap <C-h> <Cmd>:lua require("harpoon.ui").nav_next()<CR>
 
 "Open sourced scss
 nmap <leader>s /import.*\.scss/e<CR> <Plug>(coc-definition):noh<CR>
@@ -190,3 +185,5 @@ com! DiffSaved call s:DiffWithSaved()
 "highlight on yank
 "au TextYankPost * silent! lua vim.highlight.on_yank()
 "
+"see if this fixes harpoon issue
+nmap <CR> <Nop>
