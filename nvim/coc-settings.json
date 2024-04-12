@@ -15,15 +15,16 @@
       }
     }
   },
- "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript","javascriptreact","typescriptreact","python","css","scss","html"],
+ "coc.preferences.formatOnSaveFiletypes": ["go","javascript", "typescript","javascriptreact","typescriptreact","python","css","scss","html"],
   "eslint.enable": true,
+ "eslint.autoFixOnSave":true,
   "eslint.alwaysShowStatus":true,
   "prettier.semi": true,
   "python.linting.pylintEnabled":false,
   "python.formatting.provider":"black",
   "python.linting.lintOnSave":true,
-  "tailwindCSS.headwind.runOnSave": true,
-  "tailwindCSS.headwind.removeDuplicates": true
+  "pyright.inlayHints.functionReturnTypes":false,
+  "pyright.inlayHints.variableTypes":false
 }
 
-/*"coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript","javascriptreact","typescriptreact","python","css","scss","html"],*/
+/*"coc.preferences.formatOnSaveFiletypes": ["go","javascript", "typescript","javascriptreact","typescriptreact","python","css","scss","html"],*/

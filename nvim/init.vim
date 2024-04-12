@@ -142,8 +142,9 @@ nmap :E <Cmd>CocCommand explorer<CR>
 nmap :S <Cmd>CocCommand explorer --preset floating<CR>
 
 "Telescope
-nmap <leader><leader> <Cmd>Telescope find_files disable_devicons=true<CR>
-nmap <leader>f <Cmd>Telescope live_grep<CR>
+nmap <leader><leader> <Cmd>Telescope resume<CR>
+nmap <leader>f <Cmd>Telescope find_files disable_devicons=true theme=ivy<CR>
+nmap <leader>t <Cmd>Telescope live_grep<CR>
 nmap <leader>g <Cmd>Telescope git_status<CR>
 
 nmap <C-g> <Cmd>:lua require("harpoon.ui").nav_prev()<CR>
@@ -163,6 +164,8 @@ function! MakeComponent()
 endfunction
 
 nnoremap <expr> <leader>m MakeComponent()
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 lua <<EOF
 require('telescope').setup {

@@ -14,8 +14,6 @@ increment serially
 vertical select, then `C-A`
 increment by 1
 
-
-
 `\C[A-Z]`
 Enable case-sensitive search, look for capital character
 
