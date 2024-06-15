@@ -1,0 +1,41 @@
+XF86LaunchA
+  gnome-screenshot --interactive
+
+super + XF86MonBrightnessUp
+  xbacklight -set 60;/home/ic768/Scripts/DWM/dwmRefBar
+
+super + XF86MonBrightnessDown
+  xbacklight -set 2;/home/ic768/Scripts/DWM/dwmRefBar
+
+XF86MonBrightnessUp
+  xbacklight -inc 2;/home/ic768/Scripts/DWM/dwmRefBar
+
+XF86MonBrightnessDown
+  xbacklight -inc -2;/home/ic768/Scripts/DWM/dwmRefBar
+
+XF86KbdBrightnessUp
+  redshift -x
+
+XF86KbdBrightnessDown
+  redshift -O 5800
+
+XF86AudioRaiseVolume
+  amixer -D pulse sset Master 5%+; /home/ic768/Scripts/DWM/dwmRefBar
+
+XF86AudioLowerVolume
+  amixer -D pulse sset Master 5%-; /home/ic768/Scripts/DWM/dwmRefBar
+
+XF86AudioMute
+  amixer -D pulse sset Master toggle; /home/ic768/Scripts/DWM/dwmRefBar
+
+super + i
+  firefox
+
+super + v
+  vlc
+
+XF86AudioPlay
+  /home/ic768/Scripts/Language/ToggleLang.sh
+
+control + XF86AudioMute
+  xdotool keyup control
