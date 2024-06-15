@@ -1,0 +1,12 @@
+#tabbrowser-tabs {
+  visibility: collapse !important;
+}
+
+#toolbar {
+  appearance: none !important;
+  visibility: hidden !important;
+}
+#TabsToolbar {
+  visibility: collapse;
+}
+
