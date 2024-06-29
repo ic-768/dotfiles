@@ -25,7 +25,7 @@ o.clipboard = "unnamedplus"
 o.tabstop = 2
 o.shiftwidth = 2
 o.mouse = a
-o.ve = all --freely move cursor
+o.ve = "all" --freely move cursor
 o.relativenumber = true
 o.expandtab = true
 

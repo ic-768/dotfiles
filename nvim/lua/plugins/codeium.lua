@@ -12,11 +12,11 @@ M.config = function()
   vim.keymap.set('i', '<C-x>', '<Cmd>call codeium#Clear()<CR>', { silent = true })
   vim.g.codeium_filetypes_disabled_by_default = true
   vim.g.codeium_filetypes = {
-      typescript = true,
-      javascript = true,
-      javascriptreact = true,
-      typescriptreact = true,
-      python = true
+    typescript = true,
+    javascript = true,
+    javascriptreact = true,
+    typescriptreact = true,
+    python = true
   }
   vim.cmd([[set statusline+=%3{codeium#GetStatusString()}\ %F]])
 
