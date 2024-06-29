@@ -11,6 +11,7 @@ vim.opt.rtp:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
+vim.keymap.set('n', '<Backspace>', '<C-^>', { noremap = true, silent = true })
 
 local o = vim.opt
 o.compatible = false
@@ -20,7 +21,7 @@ o.undofile = true
 o.ignorecase = true
 o.nu = true
 o.visualbell = true
-o.clipboard = unnamedplus
+o.clipboard = "unnamedplus"
 o.tabstop = 2
 o.shiftwidth = 2
 o.mouse = a

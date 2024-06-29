@@ -1,6 +1,6 @@
 require('telescope').setup {
   defaults={
-    file_ignore_patterns = { "node_modules" }
+    file_ignore_patterns = { "node_modules","package%-lock" }
   }
 }
 
@@ -23,11 +23,11 @@ vim.keymap.set('n', '<C-h>', ':lua require("harpoon.ui").nav_prev()<CR>', { nore
 return {
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.8',
-    lazy=false,
+    lazy = false,
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
   {
     'ThePrimeagen/harpoon',
-    lazy=false
+    lazy = false
   },
 }

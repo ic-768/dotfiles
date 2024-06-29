@@ -9,7 +9,7 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    lazy=false,
+    lazy = false,
     build = ":TSUpdate",
     opts = {
       highlight = { enable = true },
@@ -17,11 +17,11 @@ return {
   } ,
   {
     'nvim-treesitter/nvim-treesitter-context',
-    lazy=false
+    lazy = false
   },
   {
     'tpope/vim-surround',
-    lazy=false,
+    lazy = false,
   },
   {
     "karb94/neoscroll.nvim",

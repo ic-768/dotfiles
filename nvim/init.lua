@@ -9,12 +9,3 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
-
-vim.keymap.set('n', '<Backspace>', '<C-^>', { noremap = true, silent = true })
-
--- Smooth scroll TODO doesn't work
-vim.keymap.set('n', '<silent> <C-u>', ':lua require("smooth_scroll").up(vim.o.scroll, 20, 2)<CR>', { silent = true })
-vim.keymap.set('n', '<silent> <C-d>', ':lua require("smooth_scroll").down(vim.o.scroll, 20, 2)<CR>', { silent = true })
-vim.keymap.set('n', '<silent> <C-b>', ':lua require("smooth_scroll").up(vim.o.scroll * 2, 35, 4)<CR>', { silent = true })
-vim.keymap.set('n', '<silent> <C-f>', ':lua require("smooth_scroll").down(vim.o.scroll * 2, 35, 4)<CR>', { silent = true })
-

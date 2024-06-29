@@ -4,8 +4,7 @@ local M = {
   build = "yarn install --frozen-lockfile",
 }
 
-M.config = function()
-vim.keymap.set('n', 'gd', '<Plug>(coc-definition)', { silent = true })
+M.config = function() vim.keymap.set('n', 'gd', '<Plug>(coc-definition)', { silent = true })
 vim.keymap.set('n', 'gy', '<Plug>(coc-type-definition)', { silent = true })
 vim.keymap.set('n', '<Leader>i', '<Plug>(coc-implementation)', { silent = true })
 vim.keymap.set('n', 'gr', '<Plug>(coc-references)', { silent = true })
@@ -24,6 +23,10 @@ function _G.show_docs()
         vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
     end
 end
+
+vim.api.nvim_create_user_command('Prettier', function()
+  vim.cmd('CocCommand prettier.forceFormatDocument')
+end, { nargs = 0 })
 
 vim.keymap.set("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
 vim.keymap.set('n', 'K', ':lua vim.fn.CocActionAsync("doHover")<CR>', { silent = true })

@@ -1,6 +1,6 @@
 local M = {
   'Exafunction/codeium.vim', branch='main',
-  lazy=false
+  lazy = false
 }
 
 M.config = function()
