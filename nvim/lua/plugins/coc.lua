@@ -5,15 +5,13 @@ local M = {
 }
 
 M.config = function()
-local keyset = vim.keymap.set
-
-keyset('n', 'gd', '<Plug>(coc-definition)', { silent = true })
-keyset('n', 'gy', '<Plug>(coc-type-definition)', { silent = true })
-keyset('n', '<Leader>i', '<Plug>(coc-implementation)', { silent = true })
-keyset('n', 'gr', '<Plug>(coc-references)', { silent = true })
-keyset('n', 'g]', '<Plug>(coc-diagnostic-next)', { silent = true })
-keyset('n', 'g[', '<Plug>(coc-diagnostic-prev)', { silent = true })
-keyset('n', 'gs', '<Plug>(coc-rename)', { silent = true })
+vim.keymap.set('n', 'gd', '<Plug>(coc-definition)', { silent = true })
+vim.keymap.set('n', 'gy', '<Plug>(coc-type-definition)', { silent = true })
+vim.keymap.set('n', '<Leader>i', '<Plug>(coc-implementation)', { silent = true })
+vim.keymap.set('n', 'gr', '<Plug>(coc-references)', { silent = true })
+vim.keymap.set('n', 'g]', '<Plug>(coc-diagnostic-next)', { silent = true })
+vim.keymap.set('n', 'g[', '<Plug>(coc-diagnostic-prev)', { silent = true })
+vim.keymap.set('n', 'gs', '<Plug>(coc-rename)', { silent = true })
 
 -- Use K to show documentation in preview window
 function _G.show_docs()
@@ -27,19 +25,19 @@ function _G.show_docs()
     end
 end
 
-keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
-keyset('n', 'K', ':lua vim.fn.CocActionAsync("doHover")<CR>', { silent = true })
-keyset('n', ':E', '<Cmd>CocCommand explorer<CR>', { silent = true })
+vim.keymap.set("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
+vim.keymap.set('n', 'K', ':lua vim.fn.CocActionAsync("doHover")<CR>', { silent = true })
+vim.keymap.set('n', ':E', '<Cmd>CocCommand explorer<CR>', { silent = true })
 
-keyset('i', '<C-k>', 'coc#refresh()', { silent = true, expr = true })
+vim.keymap.set('i', '<C-k>', 'coc#refresh()', { silent = true, expr = true })
 vim.keymap.set("n", "<C-k>", function()
   vim.api.nvim_feedkeys("viwoeA","n", false)
   vim.fn["coc#refresh"]()
 end
 )
 
-keyset('x', '<leader>a', '<Plug>(coc-codeaction-selected)', {})
-keyset('n', '<leader>a', '<Plug>(coc-codeaction-selected)', {})
+vim.keymap.set('x', '<leader>a', '<Plug>(coc-codeaction-selected)', {})
+vim.keymap.set('n', '<leader>a', '<Plug>(coc-codeaction-selected)', {})
 
 end
 
