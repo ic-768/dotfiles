@@ -1,10 +1,10 @@
--- telescope
 require('telescope').setup {
-	defaults={
-	  file_ignore_patterns = { "node_modules" }
-	}
+  defaults={
+    file_ignore_patterns = { "node_modules" }
+  }
 }
 
+-- telescope
 local telescope = require('telescope.builtin')
 vim.keymap.set('n', '<leader><leader>', telescope.resume, {})
 vim.keymap.set('n', '<leader>f', telescope.find_files, {})
