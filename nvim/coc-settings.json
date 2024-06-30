@@ -2,7 +2,9 @@
 "explorer.keyMappings.global": {
     "<cr>": ["expandable?", "expand", "open"],
     "v":"open:vsplit",
-    "L":"copyRelativeFilepath"
+    "L":"copyRelativeFilepath",
+    "q":"quickfix:replace",
+    "Q":"quickfix:add"
   },
   "explorer.icon.customIcons": {
     "icons": {

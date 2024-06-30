@@ -40,11 +40,10 @@ return {
     'ap/vim-css-color',
     lazy = false
   },
- {
-  'razak17/tailwind-fold.nvim',
-  opts= {},
-  dependencies = { 'nvim-treesitter/nvim-treesitter' },
-  ft = { 'typescriptreact', 'javascriptreact' },
-},
-
+  {
+    'razak17/tailwind-fold.nvim',
+    opts= {},
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    ft = { 'typescriptreact', 'javascriptreact' },
+  },
 }

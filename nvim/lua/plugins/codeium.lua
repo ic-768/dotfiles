@@ -18,7 +18,16 @@ M.config = function()
     typescriptreact = true,
     python = true
   }
-  vim.cmd([[set statusline+=%3{codeium#GetStatusString()}\ %F]])
+
+-- add codeium status to statusline
+local existing_statusline = vim.opt.statusline:get()
+local codeiumStatus = '%{codeium#GetStatusString()} '
+local codeiumColor = "%#Title#"
+
+
+local new_statusline = string.format('%s%s%s',codeiumColor, codeiumStatus, existing_statusline)
+vim.opt.statusline = new_statusline
+
 
 end
 
