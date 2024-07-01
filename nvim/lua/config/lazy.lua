@@ -37,9 +37,8 @@ local function git_branch()
     return ":"
   end
 end
-
 local function statusline()
-  local set_color_1 = "%#DiffText#"
+  local set_color_1 = "%#BGadd8e6#"
   local branch = git_branch()
   local set_color_2 = "%#Constant#"
   local file_name = " %f"
