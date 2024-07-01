@@ -9,7 +9,7 @@ return {
       vim.cmd([[colorscheme gruvbox-material]])
 
       require('gruvbox-material').setup({
-        contrast = "soft"
+        contrast = "hard"
       })
     end,
   },
