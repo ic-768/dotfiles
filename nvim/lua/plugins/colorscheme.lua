@@ -6,10 +6,16 @@ return {
     opts = {},
     priority = 1000, -- load this before all the other start plugins
     config = function()
-      vim.cmd([[colorscheme gruvbox-material]])
+      local colors = require("gruvbox-material.colors").get(vim.o.background, "hard")
 
       require('gruvbox-material').setup({
-        contrast = "hard"
+        contrast = "hard",
+        customize = function(g, o)
+          if o.bg == colors.bg0 then
+            o.bg = "#131617"
+          end
+          return o
+        end,
       })
     end,
   },
