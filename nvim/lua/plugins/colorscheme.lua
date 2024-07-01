@@ -1,10 +1,18 @@
 return {
   {
-    "rebelot/kanagawa.nvim",
+    'f4z3r/gruvbox-material.nvim',
     lazy = false,
+    name = 'gruvbox-material',
+    opts = {},
     priority = 1000, -- load this before all the other start plugins
     config = function()
-      vim.cmd([[colorscheme kanagawa]])
+      vim.cmd([[colorscheme gruvbox-material]])
+
+      require('gruvbox-material').setup({
+        background = {
+          transparent = true
+        }
+      })
     end,
   },
 }
