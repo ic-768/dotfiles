@@ -12,6 +12,13 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 vim.keymap.set('n', '<Backspace>', '<C-^>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+ 'n',
+ '<leader>c',
+ [[:s/\(<\w*\)\(\_.\{-}\)/\1 className=""\2/e<CR>:noh<CR>f"a]],
+ { noremap = true, silent = true }
+)
+
 
 local o = vim.opt
 o.compatible = false
