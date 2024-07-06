@@ -39,8 +39,10 @@ M.config = function() vim.keymap.set('n', 'gd', '<Plug>(coc-definition)', { sile
   end
   )
 
-  vim.keymap.set('x', '<leader>a', '<Plug>(coc-codeaction-selected)', {})
-  vim.keymap.set('n', '<leader>a', '<Plug>(coc-codeaction-selected)', {})
+  vim.keymap.set('x', '<leader>ra', '<Plug>(coc-codeaction-selected)', {})
+  vim.keymap.set('n', '<leader>ra', '<Plug>(coc-codeaction-cursor)', {})
+  vim.keymap.set("x", "<leader>rr", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
+  vim.keymap.set("n", "<leader>rr", "<Plug>(coc-codeaction-refactor)", { silent = true })
 
 end
 
