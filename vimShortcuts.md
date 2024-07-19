@@ -1,297 +1,133 @@
-`:sort u`
-keep only unique
+# Basic Commands
 
-in function or object `vi{<ESC>`
-gets you to bottom 
+| Command                           | Explanation                                             |
+|-----------------------------------|-------------------------------------------------------  |
+| `:sort u`                         | Keep only unique                                        |
+| `vi{<ESC>`                        | Get to bottom in function or object                     |
+| Vertical select, then `g C-A`     | Increment serially                                      |
+| Vertical select, then `C-A`       | Increment by 1                                          |
+| `[{`                              | Go to parent `{`                                        |
 
-vertical select, then `g C-A`
-increment serially
-0
-0
-0
-0
+# GIT
 
-vertical select, then `C-A`
-increment by 1
+| Command          | Explanation                                 |
+|------------------|---------------------------------------------|
+| `git difftool`   | Use at project root, see diffs              |
+| `:MergetoolStart`| Start merge tool                            |
+| `:diffget`       | Use incoming changes                        |
+| `:MergetoolStop` | Prompt if successful to keep changes or not |
 
-`\C[A-Z]`
-Enable case-sensitive search, look for capital character
+# Coc Explorer
 
-`"0p`
-paste yank register
-`[{`
-go to parent {
+| Command                         | Explanation                                |
+|---------------------------------|--------------------------------------------|
+| `:f`                            | Search                                     |
+| `:F`                            | Fuzzy search                               |
 
-#GIT
-`git difftool`
-use at project root, see diffs
+# Vim Commands
 
-`:MergetoolStart`
-`:diffget` 
-use incoming changes
+| Command                                     | Explanation                                      |
+|---------------------------------------------|--------------------------------------------------|
+| `grep -rl ${word} | cut -d':' -f1`          | Grep recursively and open files in vim           |
+| `:n` and `:N`                               | Move between files (single found instance)       |
+| `:bn` and `:p`                              | Move between buffers (won't see same file again) |
+| `:wn`                                       | Write and next                                   |
 
-`:MergetoolStop`
-prompts if successful to keep changes or not
+# Command-Line Mode
 
-# Coc explorer
-`:E` open / close
-`:S` open window mode
-`v or s`
- (dir) make top of tree
- (file) open in split
-`l/h` expand/collapse directory
-`a` add file
-`A` add directory
-`dF` delete
-`:f` search
-`:F` fuzzy search
-`J,K` select 
-`ic` preview
+| Command                               | Explanation                                   |
+|---------------------------------------|-----------------------------------------------|
+| `<C-r> and <C-w>`                     | Put word under cursor                         |
+| `:put=range(1,10,2)`                  | Paste range (can omit arg3)                   |
+| `:g/searchPattern/norm {command}`     | Run normal command at all matching lines      |
 
-vim `grep -rl ${word} | cut -d':' -f1` - grep recursively and open files in vim
-In vim, :n and :N to move between files ( single found instance between them )
-        :bn and :p to move between buffers ( won't see same file again )
-`:wn`
- write and next
+# Text-Body Actions
 
-:%d - delete whole file
+| Command                           | Explanation                        |
+|-----------------------------------|------------------------------------|
+| `:{start},{end} {action} {arg}`   | Actions on lines from start to end |
+| `.`                               | Current line                       |
+| `%`                               | All lines                          |
+| `$`                               | Last line                          |
+| `+-20`                            | Relative lines                     |
 
-#COMMAND-LINE MODE
-`<C-r> and <C-w>`
- put word under cursor
+### Actions
 
-`:put=range(1,10,2)`
- paste range ( can omit arg3 )
+| Action                                                                   | Example Commands                      |
+|--------------------------------------------------------------------------|---------------------------------------|
+| `y` (yank), `t` (tag), `m` (mark), `s` (substitute), `sort`, `normal`    | Various actions on text               |
 
-`:g/searchPattern/norm {command}`
- run normal command at all matching lines
+### Examples
 
-##TEXT-BODY ACTIONS
-:{start},{end} {action} {arg}
+| Command           | Explanation                      |
+|-------------------|----------------------------------|
+| `:8,$y`           | Yank from line 8 to end of file  |
+| `:8,$t 40`        | Copy from line 8 to line 40      |
+| `:8,$s`           | Last substitution command        |
+| `:20c`            | Change starting at line 20       |
+| `:20a`            | Append starting at line 20       |
+| `:1,4 normal .`   | Repeat the last normal command   |
+| `:1,4 normal @q`  | Execute macro q from lines 1 to 4|
 
-`.` current line
-`%` all lines
-`$` last line
-`+-20` relative lines
+# Extras
 
-`actions`
- y,t,m,s, sort, normal etc.
+| Command                               | Explanation                                               |
+|---------------------------------------|-----------------------------------------------------------|
+| `:grep txt \*`                        | Grep for txt everywhere in dir (cnext, cprev to navigate) |
+| `:edit % <TAB>`                       | Use filename in ex                                        |
+| `:edit %:h <TAB>`                     | Use filepath in ex                                        |
+| `:set path += {dir}`                  | Make dir contents available through find                  |
+| `:set path += {dir}/\*\*`             | All subdirs                                               |
+| `:find {file}`                        | Find file                                                 |
+| `:w !sudo tee % > /dev/null`          | Write current file as SU                                  |
+| `:g/a/d`                              | Globally delete all containing 'a'                        |
+| `:v/a/d`                              | Globally delete all NOT containing 'a'                    |
 
-###EXAMPLES
-`:8,$y` yank 
-`:8,$t 40` copy to line 40
-`:8,$s` last subtitution command
-`:20c` change
-`:20a` append
-:1,4 normal .
-:1,4 normal @q
+# Normal Mode
 
-## EXTRAS
-`:grep txt \*`
- grep for txt everywhere in dir ( cnext, cprev to navigate)
+| Command                  | Explanation                      |
+|--------------------------|----------------------------------|
+| `&`                      | Repeat last substitute command   |
+| `q:`                     | Ex command window                |
+| `q/`                     | Search window                    |
+| `@:`                     | Repeat last ex command           |
 
-`:edit % <TAB>`
- use filename in ex
+# Insert Mode
 
-`:edit %:h <TAB>`
- use filepath in ex
+| Command                  | Explanation                              |
+|--------------------------|------------------------------------------|
+| `<C-r>0`                 | Paste register 0                         |
+| `<C-r>=`                 | Expression register                      |
+| `<C-r>=24\*8<CR>`        | Paste expression register                |
 
-`:set path += {dir}`
- make dir contents available through find
+# Suggestions
 
-`:set path += {dir}/\*\*`
- all subdirs
-:find {file}
+| Command                  | Explanation                              |
+|--------------------------|------------------------------------------|
+| `<C-x><C-f>`             | File suggestions                         |
+| `<C-x><C-l>`             | Line suggestions                         |
 
-`:E`
- netrw
 
-`:w !sudo tee % > /dev/null`
- write current file as SU
+# Buffers
 
-`:g/a/d`
- globally delete all containing a
+| Command                | Explanation                             |
+|------------------------|-----------------------------------------|
+| `:ls`                  | List buffers                            |
+| `:bd`                  | Close buffer                            |
+| `:bufdo bd`            | Close all buffers                       |
+| `:sb`                  | Switch to open buffer                   |
 
-`:v/a/d`
- globally delete all NOT containing a
+# Arg List
 
-#NORMAL MODE
-`&` repeat last substitute command
+| Command                | Explanation                             |
+|------------------------|-----------------------------------------|
+| `:args {files}`        | Populate arg list                       |
+| `:argdo {ex command}`  | Run ex command on all arg files         |
 
-`<C-a> and <C-x>`
- arithmetic on next number
+# Splits
 
-`gv` last visual selection
-`q:` ex command window
-`q/` search window
-`<C-z>` suspend (go to terminal)
-`@:` repeat last ex
-
-#INSERT MODE
-`<C-o>` one-shot command
-`<C-r>0` paste
-`<C-r>=` expression register
-`<C-r>=24\*8<CR>` paste expression register
-
-#LISTS
-:changes
-g; and g,
-
-:jumps
-<C-o> and <C-i>
-
-#TIPS
-`g0`
-go to start of display line
-`g$`
-go to end of display line
-`"0`
-yank register
-`daw`
-delete word cleanly
-`g&`
-rerun substitution with g flag
-`v/`
-visually select large text
-
-#SUGGESTIONS
-`<C-x><C-f>`
-file suggestions
-`<C-x><C-l>`
-line suggestions
-`<C-n>`
-next suggestion
-`<C-p>`
-previous suggestion
-`<C-y>`
-accept suggestion
-
-#VIMSCRIPT
-`:let i` i
-`:let i+` 1
-`I<C-r>=i<CR>` insert i
-`"=i<CR>p` paste i
-
-##MARKS
-`ma` buffer mark
-`mA` global mark
-`'a` line
-`\`a` `exact position
-`''` last jump
-`'.` last change
-`'< '>` last selection
-
-##BUFFERS
-:ls
-:bfirst
-:blast
-:bn
-:bp
-`:bd` close buffer
-`:bufdo bd` close all buffers
-`:sb` switch to open buffer
-
-##ARG LIST
-:args `:args {files}`
- populate arg list `:argdo {ex command}`
- ex command on all arg files
-
-##SPLITS
-`<C-w>s`
- create horizontal
-`<C-w>v`
- create vertical
-`<C-w> w/h/j/k/l`
- navigate
-`<C-w> W/H/J/K/L`
- send window to extremity
-`<C-w><C-r>`
- swap two splits
-`<C-w>K`
- vertical to horizontal
-`<C-w>H`
- horizontal to vertical
-`<C-w> c/o`
- close/close all except
-`<C-w>=`
- equalise height
-`<C-w>_`
- maximise height
-`<C-w>|`
- maximise width
-`N<C-w>_`
- height to n rows
-`N<C-w>|`
- width to n rows{
-`:lcd {path}`
- set working directory for split
-`:windo lcd {path}`
- working dir for whole window
-
-##TABS
-`<C-w>T`
- move split to new tab
-`:tabc`
- close current tab
-`:tabo`
- close all except
-`3gt`
- goto third tab
-`:tabm N`
- move tab
-
-## Vim Surround
-`ys $OBJECT $SYMBOL`
- add symbol around object
-`yss`
- sentence
-`VS $SYMBOL`
- surround
-
-:r read file
-`zM`
- refold
-`zf`
- codeFold
-`za`
- unfold 
-`zE`
- delete all folds
-`zR`
- unfold all
-
-# BASICS
-`@:`
- run last colon command
-
-#EXTERNAL COMMANDS & UTILITIES
-`:%s/old/new/gc`
- find and substitute interactively
-
-###BULK RENAME
-`qmv -f do`
- bulk rename, see destination only
-`:r !ls`
- Read "ls"
-`:%s/._/mv & = Substitute "file._" with "mv file.\*", and add file name once more NOTE: &`
-WHATEVER WAS MATCHED BY REGEX.
-Block paste
-When done: :w !sh
-
-#NETRW
-`i`
- cycle between thin long and tree listing
-`gn`
- make directory top of tree
-`:n \*\*`
- recursively open in directory
-`%`
- open new file for editing
-`d`
- new directory
-`R`
- rename file
-`D`
- delete file
-`<C-o>`
- return to prev file
+| Command                | Explanation                              |
+|------------------------|------------------------------------------|
+| `<C-w>K`               | Vertical to horizontal split             |
+| `<C-w>H`               | Horizontal to vertical split             |
+| `<C-w> c/o`            | Close/close all except                   |
