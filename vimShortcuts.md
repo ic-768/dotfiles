@@ -22,6 +22,10 @@
 | `q:`                              | Ex command window                                         |
 | `q/`                              | Search window                                             |
 | `@:`                              | Repeat last ex command                                    |
+| `zM`                              | Close folds                                               |
+| `zR`                              | Open folds                                                |
+| `zE`                              | Reset folds                                               |
+
 
 # GIT
 
