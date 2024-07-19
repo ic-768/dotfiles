@@ -25,6 +25,7 @@
 | `zM`                              | Close folds                                               |
 | `zR`                              | Open folds                                                |
 | `zE`                              | Reset folds                                               |
+| `gn` / `gN`                       | Visual select search match                                |
 
 
 # GIT
