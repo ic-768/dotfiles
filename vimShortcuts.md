@@ -1,7 +1,7 @@
-# Misc 
+# Misc
 
 | Command                           | Explanation                                               |
-|-----------------------------------|-----------------------------------------------------------|
+| --------------------------------- | --------------------------------------------------------- |
 | `:sort u`                         | Keep only unique                                          |
 | `vi{<ESC>`                        | Get to bottom in function or object                       |
 | Vertical select, then `g C-A`     | Increment serially                                        |
@@ -27,30 +27,29 @@
 | `zE`                              | Reset folds                                               |
 | `gn` / `gN`                       | Visual select search match                                |
 
-
 # GIT
 
-| Command          | Explanation                                 |
-|------------------|---------------------------------------------|
-| `git difftool`   | Use at project root, see diffs              |
-| `:MergetoolStart`| Start merge tool                            |
-| `:diffget`       | Use incoming changes                        |
-| `:MergetoolStop` | Prompt if successful to keep changes or not |
+| Command           | Explanation                                 |
+| ----------------- | ------------------------------------------- |
+| `git difftool`    | Use at project root, see diffs              |
+| `:MergetoolStart` | Start merge tool                            |
+| `:diffget`        | Use incoming changes                        |
+| `:MergetoolStop`  | Prompt if successful to keep changes or not |
 
 # Actions
 
-| Action                                                                   | Example Commands                      |
-|--------------------------------------------------------------------------|---------------------------------------|
-| `y` (yank), `t` (tag), `m` (mark), `s` (substitute), `sort`, `normal`    | Various actions on text               |
+| Action                                                                | Example Commands        |
+| --------------------------------------------------------------------- | ----------------------- |
+| `y` (yank), `t` (tag), `m` (mark), `s` (substitute), `sort`, `normal` | Various actions on text |
 
 ### Examples
 
-| Command           | Explanation                      |
-|-------------------|----------------------------------|
-| `:8,$y`           | Yank from line 8 to end of file  |
-| `:8,$t 40`        | Copy from line 8 to line 40      |
-| `:8,$s`           | Last substitution command        |
-| `:20c`            | Change starting at line 20       |
-| `:20a`            | Append starting at line 20       |
-| `:1,4 normal .`   | Repeat the last normal command   |
-| `:1,4 normal @q`  | Execute macro q from lines 1 to 4|
+| Command          | Explanation                       |
+| ---------------- | --------------------------------- |
+| `:8,$y`          | Yank from line 8 to end of file   |
+| `:8,$t 40`       | Copy from line 8 to line 40       |
+| `:8,$s`          | Last substitution command         |
+| `:20c`           | Change starting at line 20        |
+| `:20a`           | Append starting at line 20        |
+| `:1,4 normal .`  | Repeat the last normal command    |
+| `:1,4 normal @q` | Execute macro q from lines 1 to 4 |
