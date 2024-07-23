@@ -29,6 +29,13 @@
 
 # GIT
 
+| Registers | Explanation           |
+| --------- | --------------------- |
+| `:`       | Last executed command |
+| `.`       | Last inserted text    |
+| `.`       | Last inserted text    |
+| `/`       | Last searched text    |
+
 | Command           | Explanation                                 |
 | ----------------- | ------------------------------------------- |
 | `git difftool`    | Use at project root, see diffs              |
