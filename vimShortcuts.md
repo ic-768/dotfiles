@@ -1,3 +1,25 @@
+# Plugins
+
+## GitSigns
+
+| Command                  | Explanation                       |
+| ------------------------ | --------------------------------- |
+| `:Gitsigns toggle_numhl` | Highlight line number of git diff |
+
+## VimFugitive
+
+| Command    | Explanation              |
+| ---------- | ------------------------ |
+| `G`        | Git status               |
+| `cc`       | Commit                   |
+| `ca`       | Amend commit w/ message  |
+| `ce`       | Amend commit w/o message |
+| `cw`       | Reword                   |
+| `czz`      | Stash                    |
+| `G add -A` | Add all changes          |
+| `G branch` | Branches                 |
+| `coo`      | checkout branch          |
+
 # Misc
 
 | Command                           | Explanation                                               |
@@ -26,6 +48,7 @@
 | `zR`                              | Open folds                                                |
 | `zE`                              | Reset folds                                               |
 | `gn` / `gN`                       | Visual select search match                                |
+| `:ccl`                            | Close quickfix                                            |
 
 # GIT
 
