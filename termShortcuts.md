@@ -1,4 +1,10 @@
-# Remote VLC
+# KEYRING GPG KEYS
+
+- Download `.gpg` file
+- `gpg --dearmor` to convert ASCII to binary
+- Move to `/etc/apt/trusted.gpg.d/`
+
+# REMOTE VLC
 
 | Command                                        | Explanation                                |
 | ---------------------------------------------- | ------------------------------------------ |
