@@ -56,3 +56,9 @@
 | `at 18:00`         | Run a command at this time; write command and save with Ctrl+d. |
 | `atq`              | List scheduled jobs                                             |
 | `at -c $JOBNUMBER` | View command for a specific job                                 |
+
+# KEYBINDINGS
+
+| Keys        | Commands        |
+| ----------- | --------------- |
+| `Super + g` | Toggle language |

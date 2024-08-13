@@ -1,4 +1,4 @@
-XF86LaunchA
+Print
   gnome-screenshot --interactive
 
 super + XF86MonBrightnessUp
@@ -34,8 +34,8 @@ super + i
 super + v
   vlc
 
-XF86AudioPlay
+super + g
   /home/ic768/Scripts/Language/ToggleLang.sh
-
+  
 control + XF86AudioMute
   xdotool keyup control
