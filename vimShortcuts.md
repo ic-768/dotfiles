@@ -51,6 +51,7 @@
 | `gn` / `gN`                       | Visual select search match                                |
 | `:ccl`                            | Close quickfix                                            |
 | `q:` -> `C-c` to close            | executed `:` commands                                     |
+| `:r !command`                     | write command output                                      |
 
 | Registers | Explanation           |
 | --------- | --------------------- |
