@@ -44,13 +44,13 @@
 | `q:`                              | Ex command window                                         |
 | `q/`                              | Search window                                             |
 | `@:`                              | Repeat last ex command                                    |
+| `za`                              | Toggle fold                                               |
 | `zM`                              | Close folds                                               |
 | `zR`                              | Open folds                                                |
 | `zE`                              | Reset folds                                               |
 | `gn` / `gN`                       | Visual select search match                                |
 | `:ccl`                            | Close quickfix                                            |
-
-# GIT
+| `q:` -> `C-c` to close            | executed `:` commands                                     |
 
 | Registers | Explanation           |
 | --------- | --------------------- |
@@ -59,12 +59,13 @@
 | `.`       | Last inserted text    |
 | `/`       | Last searched text    |
 
-| Command           | Explanation                                 |
-| ----------------- | ------------------------------------------- |
-| `git difftool`    | Use at project root, see diffs              |
-| `:MergetoolStart` | Start merge tool                            |
-| `:diffget`        | Use incoming changes                        |
-| `:MergetoolStop`  | Prompt if successful to keep changes or not |
+# GIT
+
+| Command        | Explanation                    |
+| -------------- | ------------------------------ |
+| `git difftool` | Use at project root, see diffs |
+| `:Gdiffsplit`  | Get diff                       |
+| `:diffget`     | Use incoming changes           |
 
 # Actions
 

@@ -36,6 +36,6 @@ super + v
 
 super + g
   /home/ic768/Scripts/Language/ToggleLang.sh
-  
+
 control + XF86AudioMute
   xdotool keyup control
