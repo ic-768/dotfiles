@@ -24,6 +24,7 @@
 
 | Command                           | Explanation                                               |
 | --------------------------------- | --------------------------------------------------------- |
+| `/app/e`                          | Go to `app` to the end of the word                        |
 | `:sort u`                         | Keep only unique                                          |
 | `vi{<ESC>`                        | Get to bottom in function or object                       |
 | Vertical select, then `g C-A`     | Increment serially                                        |
@@ -40,7 +41,8 @@
 | `<C-w>K`                          | Vertical to horizontal split                              |
 | `<C-w>H`                          | Horizontal to vertical split                              |
 | `<C-w> c/o`                       | Close/close all except                                    |
-| `&`                               | Repeat last substitute command                            |
+| `:&`                              | Repeat last substitute command                            |
+| `g&`                              | Repeat last substitute command globally                   |
 | `q:`                              | Ex command window                                         |
 | `q/`                              | Search window                                             |
 | `@:`                              | Repeat last ex command                                    |
