@@ -1,3 +1,9 @@
+# TMUX
+
+| Command  | Explanation            |
+| -------- | ---------------------- |
+| `tmux a` | attach to tmux session |
+
 # KEYRING GPG KEYS
 
 - Download `.gpg` file

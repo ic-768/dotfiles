@@ -59,7 +59,6 @@
 | --------- | --------------------- |
 | `:`       | Last executed command |
 | `.`       | Last inserted text    |
-| `.`       | Last inserted text    |
 | `/`       | Last searched text    |
 
 # GIT
