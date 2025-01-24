@@ -1,8 +1,10 @@
 # TMUX
 
-| Command  | Explanation            |
-| -------- | ---------------------- |
-| `tmux a` | attach to tmux session |
+| Command                | Explanation                     |
+| ---------------------- | ------------------------------- |
+| `tmux ls`              | see existing tmux sessions      |
+| `tmux a`               | attach to existing tmux session |
+| tmux attach -d -t <id> | attach to specific id           |
 
 # KEYRING GPG KEYS
 
