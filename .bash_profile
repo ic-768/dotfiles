@@ -1,5 +1,6 @@
 script_path="/home/ic768/Scripts"
 
+alias ctmux="alacritty --class tmux -e tmux & disown"
 alias webDev="$script_path/Web/workspace.sh" # Server + vim
 alias serve="$script_path/Web/hotServer.sh" # Simple server
 alias aop="$script_path/Opacity/alacrittyOpacity.sh"
@@ -20,12 +21,7 @@ alias TODO="vi ~/Desktop/Code/tasks.md"
 alias component="$script_path/Web/react-component.sh"
 alias wifiCon="$script_path/Utility/wifiCon.sh"
 
-alias gdcenter="curl -X POST -H 'Content-Type: application/json' -d'{\"content\":\"center\"}' http://192.168.1.14:3001/mouse"
-alias gdmirror="curl -X POST -H 'Content-Type: application/json' -d'{\"content\":\"mirror\"}' http://192.168.1.14:3001/mouse"
-alias gddouble="curl -X POST -H 'Content-Type: application/json' -d'{\"content\":\"double\"}' http://192.168.1.14:3001/mouse"
-
 alias clearSwap="rm /home/ic768/.local/state/nvim/swap/*"
-alias ngs="source <( ng completion script)"
 
 alias j='z'
 
